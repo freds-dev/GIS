@@ -53,7 +53,7 @@ async function seed() {
         longitude: playground.Longitude,
       },
     });
-    printProgress(`ℹ️  Imported ${i} of ${playgrounds.length} devices.`);
+    printProgress(`ℹ️  Imported ${i} of ${playgrounds.length} playgrounds.`);
   }
 
   await prisma.note.create({
