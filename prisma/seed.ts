@@ -1,7 +1,15 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import csvtojson from "csvtojson";
 
 const prisma = new PrismaClient();
+
+function printProgress(text: string) {
+  if (process.stdout.cursorTo) {
+    process.stdout.cursorTo(0);
+  }
+  process.stdout.write(text);
+}
 
 async function seed() {
   const email = "rachel@remix.run";
@@ -23,6 +31,30 @@ async function seed() {
       },
     },
   });
+
+  const playgrounds = await csvtojson({
+    delimiter: ";",
+  }).fromFile("prisma/spielplaetze.csv");
+  let i = 0;
+  for await (const playground of playgrounds) {
+    i++;
+    await prisma.playground.create({
+      data: {
+        name: playground.Name,
+        name2: playground.Name2,
+        size: playground.Groesse,
+        type: playground.Typ,
+        description: playground.Beschreibung,
+        area: playground.Bereich,
+        ball: playground.Ballspielplatz,
+        skater: playground.Skater,
+        streetball: playground.Streetball,
+        latitude: playground.Latitude,
+        longitude: playground.Longitude,
+      },
+    });
+    printProgress(`ℹ️  Imported ${i} of ${playgrounds.length} devices.`);
+  }
 
   await prisma.note.create({
     data: {
