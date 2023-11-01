@@ -100,7 +100,7 @@ jobs:
         # the sleep is just there to give time for postgres to get started
         run: docker compose up -d && sleep 3
         env:
-          POSTGRES_PRISMA_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
+          DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
 
       - name: 🛠 Setup Database
         uses: nick-fields/retry@v2.9.0
