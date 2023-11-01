@@ -6,4 +6,5 @@ mkswap /swapfile
 echo 10 >/proc/sys/vm/swappiness
 swapon /swapfile
 echo 1 >/proc/sys/vm/overcommit_memory
+echo $POSTGRES_PRISMA_URL
 npx prisma migrate deploy
