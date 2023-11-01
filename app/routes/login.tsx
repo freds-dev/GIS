@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import type {
   ActionFunctionArgs,
   LoaderFunctionArgs,
@@ -139,12 +140,12 @@ export default function LoginPage() {
           </div>
 
           <input type="hidden" name="redirectTo" value={redirectTo} />
-          <button
+          <Button
             type="submit"
             className="w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:bg-blue-400"
           >
             Log in
-          </button>
+          </Button>
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <input
