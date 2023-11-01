@@ -25,6 +25,21 @@ model Password {
   userId String @unique
 }
 
+model Playground {
+  id          String @id @unique @default(cuid())
+  name        String
+  name2       String
+  size        String
+  type        String
+  description String
+  area        String
+  ball        String
+  skater      String
+  streetball  String
+  latitude    String
+  longitude   String
+}
+
 model Note {
   id    String @id @default(cuid())
   title String
