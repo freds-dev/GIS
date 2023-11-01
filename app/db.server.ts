@@ -7,10 +7,10 @@ import { singleton } from "./singleton.server";
 const prisma = singleton("prisma", getPrismaClient);
 
 function getPrismaClient() {
-  const { POSTGRES_URL } = process.env;
-  invariant(typeof POSTGRES_URL === "string", "POSTGRES_URL env var not set");
+  const { POSTGRES_PRISMA_URL } = process.env;
+  invariant(typeof POSTGRES_PRISMA_URL === "string", "POSTGRES_PRISMA_URL env var not set");
 
-  const databaseUrl = new URL(POSTGRES_URL);
+  const databaseUrl = new URL(POSTGRES_PRISMA_URL);
 
   const isLocalHost = databaseUrl.hostname === "localhost";
 
