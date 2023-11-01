@@ -84,7 +84,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🏄 Copy test env vars
-        run: cp .env.example .env
+        run: cp .env.example .env && cat .env
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
