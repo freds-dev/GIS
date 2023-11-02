@@ -1,7 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
-
-import { useOptionalUser } from "~/utils";
+import { useOptionalUser } from "~/utils"; // deployment will catch this convention error
 
 export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
 
