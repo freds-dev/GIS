@@ -1,11 +1,71 @@
+import { useLoaderData } from "@remix-run/react";
 import {
+  Layer,
+  LayerProps,
   MapProvider,
   NavigationControl,
   Map as ReactMap,
+  Source,
 } from "react-map-gl/maplibre";
+
 import "maplibre-gl/dist/maplibre-gl.css";
+import { getAllPlaygrounds } from "~/models/playground.server";
+
+export async function loader() {
+  const playgrounds = await getAllPlaygrounds();
+
+  return {
+    playgrounds: playgrounds,
+  };
+}
+
+export const clusterLayer: LayerProps = {
+  id: "clusters",
+  type: "circle",
+  source: "earthquakes",
+  filter: ["has", "point_count"],
+  paint: {
+    "circle-color": [
+      "step",
+      ["get", "point_count"],
+      "#51bbd6",
+      100,
+      "#f1f075",
+      750,
+      "#f28cb1",
+    ],
+    "circle-radius": ["step", ["get", "point_count"], 20, 100, 30, 750, 40],
+  },
+};
+
+export const clusterCountLayer: LayerProps = {
+  id: "cluster-count",
+  type: "symbol",
+  source: "earthquakes",
+  filter: ["has", "point_count"],
+  layout: {
+    "text-field": "{point_count_abbreviated}",
+    "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+    "text-size": 12,
+  },
+};
+
+export const unclusteredPointLayer: LayerProps = {
+  id: "unclustered-point",
+  type: "circle",
+  source: "earthquakes",
+  filter: ["!", ["has", "point_count"]],
+  paint: {
+    "circle-color": "#11b4da",
+    "circle-radius": 4,
+    "circle-stroke-width": 1,
+    "circle-stroke-color": "#fff",
+  },
+};
 
 export default function Explore() {
+  const data = useLoaderData<typeof loader>();
+
   return (
     <div className="">
       <MapProvider>
@@ -28,6 +88,18 @@ export default function Explore() {
           }
           attributionControl={true}
         >
+          <Source
+            id="my-data"
+            type="geojson"
+            data={data.playgrounds}
+            cluster={true}
+            clusterMaxZoom={14}
+            clusterRadius={50}
+          >
+            <Layer {...clusterLayer} />
+            <Layer {...clusterCountLayer} />
+            <Layer {...unclusteredPointLayer} />
+          </Source>
           <NavigationControl position="top-right" showCompass={false} />
         </ReactMap>
       </MapProvider>
