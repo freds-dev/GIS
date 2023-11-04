@@ -49,12 +49,16 @@ async function seed() {
         ball: playground.Ballspielplatz,
         skater: playground.Skater,
         streetball: playground.Streetball,
-        latitude: playground.Latitude,
-        longitude: playground.Longitude,
+        // NOTE: THIS IS ON PURPOSE - LAT, LONG ARE REVERSED IN THE CSV
+        latitude: playground.Longitude,
+        longitude: playground.Latitude,
       },
     });
     printProgress(`ℹ️  Imported ${i} of ${playgrounds.length} playgrounds.`);
   }
+
+  //line break
+  console.log("\n")
 
   await prisma.note.create({
     data: {

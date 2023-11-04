@@ -1,4 +1,6 @@
 import type { Playground } from "@prisma/client";
+import { point } from "@turf/helpers";
+import type { Point } from "geojson";
 
 import { prisma } from "~/db.server";
 
@@ -32,6 +34,31 @@ export async function createPlayground(
       streetball,
       latitude,
       longitude,
+    },
+  });
+}
+
+export async function getAllPlaygrounds() {
+  const playgrounds = await prisma.playground.findMany();
+  const geojson: GeoJSON.FeatureCollection<Point> = {
+    type: "FeatureCollection",
+    features: [],
+  };
+  for (const playground of playgrounds) {
+    const coordinates = [
+      parseFloat(playground.longitude),
+      parseFloat(playground.latitude),
+    ];
+    const feature = point(coordinates, playground);
+    geojson.features.push(feature);
+  }
+  return geojson;
+}
+
+export async function getPlaygroundById(id: Playground["id"]) {
+  return prisma.playground.findUnique({
+    where: {
+      id,
     },
   });
 }
