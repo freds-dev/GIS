@@ -1,6 +1,6 @@
 export function getEnv() {
   return {
-    MAPTILER_KEY: process.env.MAPLIBRE_KEY,
+    MAPTILER_KEY: process.env.MAPTILER_KEY,
   };
 }
 
