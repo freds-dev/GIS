@@ -38,7 +38,11 @@ export default function NoteDetailsPage() {
   return (
     <div>
       <h3 className="text-2xl font-bold">{data.report.title}</h3>
-      <p className="py-6">{data.report.description}</p>
+      <p className="py-6">Description: {data.report.description}</p>
+      <p className="py-6">PlaygroundId: {data.report.playgroundId}</p>
+      <p className="py-6">Status: {data.report.status}</p>
+      <p className="py-6">Created at: {data.report.createdAt}</p>
+      <p className="py-6">Updated at: {data.report.updatedAt}</p>
       <hr className="my-4" />
       <Form method="post">
         <button

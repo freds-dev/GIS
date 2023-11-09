@@ -12,7 +12,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
   const title = formData.get("title");
   const description = formData.get("description");
-  const playgroundId = formData.get("playgroundId");
+  const playground = formData.get("playground");
 
   if (typeof title !== "string" || title.length === 0) {
     return json(
@@ -20,7 +20,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         errors: {
           description: null,
           title: "Title is required",
-          playgroundId: null,
+          playground: null,
         },
       },
       { status: 400 },
@@ -33,20 +33,20 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         errors: {
           description: "Description is required",
           title: null,
-          playgroundId: null,
+          playground: null,
         },
       },
       { status: 400 },
     );
   }
 
-  if (typeof playgroundId !== "string" || playgroundId.length === 0) {
+  if (typeof playground !== "string" || playground.length === 0) {
     return json(
       {
         errors: {
           description: null,
           title: null,
-          playgroundId: "Playground is required",
+          playground: "Playground is required",
         },
       },
       { status: 400 },
@@ -57,7 +57,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     description,
     title,
     userId,
-    playgroundId,
+    playground,
   });
 
   return redirect(`/reports/${report.id}`);
@@ -74,7 +74,7 @@ export default function NewNReportPage() {
       titleRef.current?.focus();
     } else if (actionData?.errors?.description) {
       descriptionRef.current?.focus();
-    } else if (actionData?.errors?.playgroundId) {
+    } else if (actionData?.errors?.playground) {
       playgroundRef.current?.focus();
     }
   }, [actionData]);
@@ -119,12 +119,12 @@ export default function NewNReportPage() {
             className="w-full flex-1 rounded-md border-2 border-blue-500 px-3 py-2 text-lg leading-6"
             aria-invalid={actionData?.errors?.description ? true : undefined}
             aria-errormessage={
-              actionData?.errors?.description ? "body-error" : undefined
+              actionData?.errors?.description ? "escription-error" : undefined
             }
           />
         </label>
         {actionData?.errors?.description ? (
-          <div className="pt-1 text-red-700" id="body-error">
+          <div className="pt-1 text-red-700" id="description-error">
             {actionData.errors.description}
           </div>
         ) : null}
@@ -132,20 +132,22 @@ export default function NewNReportPage() {
 
       <div>
         <label className="flex w-full flex-col gap-1">
-          <span>PlaygroundId: </span>
+          <span>Playground: </span>
           <textarea
             ref={playgroundRef}
-            name="playgroundId"
+            name="playground"
             className="w-full flex-1 rounded-md border-2 border-blue-500 px-3 py-2 text-lg leading-6"
-            aria-invalid={actionData?.errors?.playgroundId ? true : undefined}
+            aria-invalid={actionData?.errors?.playground ? true : undefined}
             aria-errormessage={
-              actionData?.errors?.playgroundId ? "body-error" : undefined
+              actionData?.errors?.playground
+                ? "playground-error"
+                : undefined
             }
           />
         </label>
-        {actionData?.errors?.playgroundId ? (
+        {actionData?.errors?.playground ? (
           <div className="pt-1 text-red-700" id="body-error">
-            {actionData.errors.playgroundId}
+            {actionData.errors.playground}
           </div>
         ) : null}
       </div>

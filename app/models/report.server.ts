@@ -11,7 +11,6 @@ export function getReport({
   userId: User["id"];
 }) {
   return prisma.report.findFirst({
-    select: { id: true, description: true, title: true },
     where: { id, userId },
   });
 }
@@ -33,10 +32,10 @@ export function getReportListItems({ userId }: { userId: User["id"] }) {
 export function createReport({
   description,
   title,
-  playgroundId,
+  playground,
   userId,
 }: Pick<Report, "description" | "title"> & {
-  playgroundId: Playground["id"];
+  playground: Playground["name"];
   userId: User["id"];
 }) {
   return prisma.report.create({
@@ -50,7 +49,7 @@ export function createReport({
       },
       playground: {
         connect: {
-          id: playgroundId,
+          name: playground,
         },
       },
     },
