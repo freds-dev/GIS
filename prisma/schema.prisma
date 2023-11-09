@@ -7,15 +7,28 @@ generator client {
   provider = "prisma-client-js"
 }
 
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Status {
+  PENDING
+  IN_PROGRESS
+  DONE
+}
+
 model User {
   id    String @id @default(cuid())
   email String @unique
+  role  Role   @default(USER)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   password Password?
   notes    Note[]
+  reports  Report[]
 }
 
 model Password {
@@ -26,7 +39,7 @@ model Password {
 }
 
 model Playground {
-  id          String @id @unique @default(cuid())
+  id          String   @id @unique @default(cuid())
   name        String
   name2       String
   size        String
@@ -38,6 +51,7 @@ model Playground {
   streetball  String
   latitude    String
   longitude   String
+  reports     Report[]
 }
 
 model Note {
@@ -45,6 +59,21 @@ model Note {
   title String
   body  String
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String
+}
+
+model Report {
+  id           String     @id @default(cuid())
+  title        String
+  description  String
+  playground   Playground @relation(fields: [playgroundId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  playgroundId String
+
+  status    Status   @default(PENDING)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

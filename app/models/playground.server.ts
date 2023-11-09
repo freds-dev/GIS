@@ -55,10 +55,8 @@ export async function getAllPlaygrounds() {
   return geojson;
 }
 
-export async function getPlaygroundById(id: Playground["id"]) {
-  return prisma.playground.findUnique({
-    where: {
-      id,
-    },
+export function getPlayground({ id }: Pick<Playground, "id">) {
+  return prisma.playground.findFirst({
+    where: { id },
   });
 }

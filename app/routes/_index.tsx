@@ -51,7 +51,7 @@ export default function Index() {
             {user ? (
               <div className="flex w-full justify-around pb-24 lg:pb-0 fade-in">
                 <Button className="bounce-top-icons items-center justify-center rounded-md bg-purple-800 text-white">
-                  <Link to="/notes">View Notes for {user.email}</Link>
+                  <Link to="/reports">View Reports for {user.email}</Link>
                 </Button>
               </div>
             ) : (
