@@ -18,6 +18,9 @@ async function seed() {
   await prisma.user.delete({ where: { email } }).catch(() => {
     // no worries if it doesn't exist yet
   });
+    //* cleanup the existing database (if any)
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    await prisma.playground.deleteMany({}).catch(() => {});
 
   const hashedPassword = await bcrypt.hash("racheliscool", 10);
 
@@ -49,7 +52,7 @@ async function seed() {
         ball: playground.Ballspielplatz,
         skater: playground.Skater,
         streetball: playground.Streetball,
-        // NOTE: THIS IS ON PURPOSE - LAT, LONG ARE REVERSED IN THE CSV
+        // INFO: THIS IS ON PURPOSE - LAT, LONG ARE REVERSED IN THE CSV
         latitude: playground.Longitude,
         longitude: playground.Latitude,
       },
