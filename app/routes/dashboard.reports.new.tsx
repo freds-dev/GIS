@@ -83,7 +83,7 @@ export default function NewReportPage() {
             <FormItem>
               <FormLabel>Title</FormLabel>
               <FormControl>
-                <Input placeholder="Title" {...field} />
+                <Input type="textbox" placeholder="Title" {...field} />
               </FormControl>
               <FormDescription>
                 This is the title of your report.
@@ -117,7 +117,7 @@ export default function NewReportPage() {
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a playground" />
+                    <SelectValue id="playgroundSelectTrigger" placeholder="Select a playground" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
