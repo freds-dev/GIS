@@ -2,10 +2,16 @@
 
 import { Playground } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, Check, Info, MoreHorizontal, X } from "lucide-react";
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "~/components/ui/tooltip";
 
 import { Button } from "../ui/button";
-import { Checkbox } from "../ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,41 +21,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 
-// export const columns: ColumnDef<Playground>[] = [
-//   {
-//     accessorKey: "name",
-//     header: "Name",
-//   },
-//   {
-//     accessorKey: "size",
-//     header: "Size",
-//   },
-//   {
-//     accessorKey: "type",
-//     header: "Type",
-//   },
-// ];
-
 export const columns: ColumnDef<Playground>[] = [
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={table.getIsAllPageRowsSelected()}
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
   {
     accessorKey: "name",
     header: "Name",
@@ -72,27 +44,58 @@ export const columns: ColumnDef<Playground>[] = [
   },
   {
     accessorKey: "area",
-    header: "Area",
+    header: () => {
+      return (
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="ghost">
+                Area
+                <Info className="ml-2 h-4 w-4" />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>
+                {
+                  "A = Spielplatz für alle Altersklassen mitzentraler Versorgungsfunktion"
+                }
+                <br />
+                {
+                  "B/C = Spielplatz für Kleinkinder sowie schulpfl. Kinder und Jugendliche zur Versorgung eines Wohnbereiches"
+                }
+                <br />
+                {"C = Spielplatz für Kleinkinder"}
+              </p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      );
+    },
     cell: ({ row }) => <div className="capitalize">{row.getValue("area")}</div>,
   },
   {
     accessorKey: "ball",
     header: "Ball",
-    cell: ({ row }) => <div className="capitalize">{row.getValue("ball")}</div>,
+    cell: ({ row }) => {
+      const ball = row.getValue("ball") ? <Check /> : <X />;
+      return ball;
+    },
   },
   {
     accessorKey: "skater",
     header: "Skater",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("skater")}</div>
-    ),
+    cell: ({ row }) => {
+      const skater = row.getValue("skater") ? <Check /> : <X />;
+      return skater;
+    },
   },
   {
     accessorKey: "streetball",
     header: "Streetball",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("streetball")}</div>
-    ),
+    cell: ({ row }) => {
+      const streetball = row.getValue("streetball") ? <Check /> : <X />;
+      return streetball;
+    },
   },
   {
     id: "actions",

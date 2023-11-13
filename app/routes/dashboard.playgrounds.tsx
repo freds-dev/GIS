@@ -1,8 +1,8 @@
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
-import { columns } from "@/components/playgrounds/columns";
-import { DataTable } from "@/components/playgrounds/data-table";
+import { columns } from "~/components/playgrounds/columns";
+import { DataTable } from "~/components/playgrounds/data-table";
 import { getAllPlaygrounds } from "~/models/playground.server";
 
 export const loader = async () => {
@@ -10,7 +10,7 @@ export const loader = async () => {
   return json({ playgrounds });
 };
 
-export default function ReportIndexPage() {
+export default function DashboardPlaygroundsPage() {
   const data = useLoaderData<typeof loader>();
   return <DataTable columns={columns} data={data.playgrounds} />;
 }

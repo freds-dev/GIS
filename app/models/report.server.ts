@@ -32,10 +32,10 @@ export function getReportListItems({ userId }: { userId: User["id"] }) {
 export function createReport({
   description,
   title,
-  playground,
+  playgroundId,
   userId,
 }: Pick<Report, "description" | "title"> & {
-  playground: Playground["name"];
+  playgroundId: Playground["id"];
   userId: User["id"];
 }) {
   return prisma.report.create({
@@ -49,7 +49,7 @@ export function createReport({
       },
       playground: {
         connect: {
-          name: playground,
+          id: playgroundId,
         },
       },
     },
