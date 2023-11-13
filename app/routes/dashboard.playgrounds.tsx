@@ -12,5 +12,5 @@ export const loader = async () => {
 
 export default function DashboardPlaygroundsPage() {
   const data = useLoaderData<typeof loader>();
-  return <DataTable columns={columns} data={data.playgrounds} />;
+  return <div className="w-full h-full p-6"><DataTable columns={columns} data={data.playgrounds} /></div>;
 }

@@ -14,7 +14,7 @@ export default function DashboardPlaygroundsPage() {
   const data = useLoaderData<typeof loader>();
 
   return (
-    <div className="h-full">
+    <div className="h-full w-full p-6">
       <Link to="new" className="block p-4 text-xl text-blue-500">
         + New Report
       </Link>
