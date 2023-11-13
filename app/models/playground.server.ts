@@ -39,6 +39,10 @@ export async function createPlayground(
 }
 
 export async function getAllPlaygrounds() {
+  return prisma.playground.findMany();
+}
+
+export async function getAllPlaygroundsAsGeoJSON() {
   const playgrounds = await prisma.playground.findMany();
   const geojson: GeoJSON.FeatureCollection<Point> = {
     type: "FeatureCollection",

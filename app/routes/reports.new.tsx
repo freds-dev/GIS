@@ -63,7 +63,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   return redirect(`/reports/${report.id}`);
 };
 
-export default function NewNReportPage() {
+export default function NewReportPage() {
   const actionData = useActionData<typeof action>();
   const titleRef = useRef<HTMLInputElement>(null);
   const descriptionRef = useRef<HTMLTextAreaElement>(null);
@@ -139,9 +139,7 @@ export default function NewNReportPage() {
             className="w-full flex-1 rounded-md border-2 border-blue-500 px-3 py-2 text-lg leading-6"
             aria-invalid={actionData?.errors?.playground ? true : undefined}
             aria-errormessage={
-              actionData?.errors?.playground
-                ? "playground-error"
-                : undefined
+              actionData?.errors?.playground ? "playground-error" : undefined
             }
           />
         </label>
