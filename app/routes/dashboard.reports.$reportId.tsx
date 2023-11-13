@@ -29,7 +29,7 @@ export const action = async ({ params, request }: ActionFunctionArgs) => {
 
   await deleteReport({ id: params.reportId, userId });
 
-  return redirect("/reports");
+  return redirect("/dashboard/reports");
 };
 
 export default function NoteDetailsPage() {

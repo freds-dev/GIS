@@ -10,33 +10,34 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   return json({ reportListItems });
 };
 
-export default function ReportIndexPage() {
+export default function DashboardPlaygroundsPage() {
   const data = useLoaderData<typeof loader>();
 
-  <div className="h-full w-80 border-r bg-gray-50">
-    <Link to="new" className="block p-4 text-xl text-blue-500">
-      + New Report
-    </Link>
+  return (
+    <div className="h-full">
+      <Link to="new" className="block p-4 text-xl text-blue-500">
+        + New Report
+      </Link>
 
-    <hr />
-
-    {data.reportListItems.length === 0 ? (
-      <p className="p-4">No reports yet</p>
-    ) : (
-      <ol>
-        {data.reportListItems.map((report) => (
-          <li key={report.id}>
-            <NavLink
-              className={({ isActive }) =>
-                `block border-b p-4 text-xl ${isActive ? "bg-white" : ""}`
-              }
-              to={report.id}
-            >
-              📝 {report.title}
-            </NavLink>
-          </li>
-        ))}
-      </ol>
-    )}
-  </div>;
+      <hr />
+      {data.reportListItems.length === 0 ? (
+        <p className="p-4">No reports yet</p>
+      ) : (
+        <ol>
+          {data.reportListItems.map((report) => (
+            <li key={report.id}>
+              <NavLink
+                className={({ isActive }) =>
+                  `block border-b p-4 text-xl ${isActive ? "bg-white" : ""}`
+                }
+                to={report.id}
+              >
+                📝 {report.title}
+              </NavLink>
+            </li>
+          ))}
+        </ol>
+      )}
+    </div>
+  );
 }

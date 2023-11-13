@@ -1,6 +1,7 @@
-import * as React from "react"
+/* eslint-disable react/prop-types */
 import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
+import * as React from "react"
 import {
   Controller,
   ControllerProps,
@@ -10,15 +11,15 @@ import {
   useFormContext,
 } from "react-hook-form"
 
-import { cn } from "app/utils/utils"
 import { Label } from "app/components/ui/label"
+import { cn } from "app/utils/utils"
 
 const Form = FormProvider
 
-type FormFieldContextValue<
+interface FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> = {
+> {
   name: TName
 }
 
@@ -62,7 +63,7 @@ const useFormField = () => {
   }
 }
 
-type FormItemContextValue = {
+interface FormItemContextValue {
   id: string
 }
 
