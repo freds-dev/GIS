@@ -4,7 +4,6 @@ import { createReport } from "~/models/report.server";
 import { requireUserId } from "~/session.server";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-  console.log("🚀 ~ file: action.new-report.tsx:7 ~ action ~ request:", request)
   const userId = await requireUserId(request);
 
   const formData = await request.formData();
