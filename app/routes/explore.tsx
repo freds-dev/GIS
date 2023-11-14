@@ -102,7 +102,7 @@ export default function Explore() {
             <Layer {...clusterCountLayer} />
             <Layer {...unclusteredPointLayer} />
           </Source>
-          <NavigationControl position="top-right" showCompass={false} />
+          <NavigationControl position="bottom-right" showCompass={false} />
         </ReactMap>
       </MapProvider>
     </div>

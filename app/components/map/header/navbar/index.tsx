@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { SearchIcon, XIcon } from "lucide-react";
 import { useState, useEffect, useRef, createContext } from "react";
-import { useMap } from "react-map-gl";
 
 import NavbarHandler from "./navbar-handler";
 
@@ -16,13 +15,14 @@ export default function NavBar() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchString, setSearchString] = useState("");
 
-  const { osem: mapRef } = useMap();
+  // TODO: CLOSE ON CLICK OUTSIDE - NOT WORKING DUES TO MAPBOX GL IMPORT ISSUES
+  // const { osem: mapRef } = reactMapGL.useMap();
 
-  useEffect(() => {
-    if (mapRef) {
-      mapRef.on("click", () => setOpen(false));
-    }
-  }, [mapRef]);
+  // useEffect(() => {
+  //   if (mapRef) {
+  //     mapRef.on("click", () => setOpen(false));
+  //   }
+  // }, [mapRef]);
 
   // register keyboard shortcuts
   useEffect(() => {
