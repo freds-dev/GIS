@@ -1,7 +1,7 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { json } from "@remix-run/node";
-import { useLoaderData, useSubmit } from "@remix-run/react";
+import { useLoaderData, useSearchParams, useSubmit } from "@remix-run/react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -27,10 +27,6 @@ import { getAllPlaygrounds } from "~/models/playground.server";
 
 export const loader = async () => {
   const playgrounds = await getAllPlaygrounds();
-  console.log(
-    "🚀 ~ file: dashboard.tsx:9 ~ loader ~ playgrounds:",
-    playgrounds,
-  );
   return json({ playgrounds });
 };
 
@@ -42,11 +38,9 @@ const formSchema = z.object({
 
 export default function NewReportPage() {
   const data = useLoaderData<typeof loader>();
+  const [searchParams] = useSearchParams();
+  const predefinedPlaygroundId = searchParams.get("playgroundId") ?? "";
   const submit = useSubmit();
-  console.log(
-    "🚀 ~ file: dashboard.reports.new.tsx:97 ~ NewReportPage ~ data:",
-    data,
-  );
 
   // Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -54,7 +48,7 @@ export default function NewReportPage() {
     defaultValues: {
       title: "",
       description: "",
-      playgroundId: "",
+      playgroundId: predefinedPlaygroundId,
     },
   });
 
@@ -114,10 +108,16 @@ export default function NewReportPage() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Playground</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select
+                onValueChange={field.onChange}
+                defaultValue={predefinedPlaygroundId ?? field.value}
+              >
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue id="playgroundSelectTrigger" placeholder="Select a playground" />
+                    <SelectValue
+                      id="playgroundSelectTrigger"
+                      placeholder="Select a playground"
+                    />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
