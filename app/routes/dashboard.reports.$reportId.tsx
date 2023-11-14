@@ -8,27 +8,28 @@ import {
 } from "@remix-run/react";
 import invariant from "tiny-invariant";
 
-import { deleteNote, getNote } from "~/models/note.server";
+import { getReport, deleteReport } from "~/models/report.server";
 import { requireUserId } from "~/session.server";
 
 export const loader = async ({ params, request }: LoaderFunctionArgs) => {
   const userId = await requireUserId(request);
-  invariant(params.noteId, "noteId not found");
+  invariant(params.reportId, "reportId not found");
 
-  const note = await getNote({ id: params.noteId, userId });
-  if (!note) {
+  const report = await getReport({ id: params.reportId, userId });
+  if (!report) {
     throw new Response("Not Found", { status: 404 });
   }
-  return json({ note });
+
+  return json({ report });
 };
 
 export const action = async ({ params, request }: ActionFunctionArgs) => {
   const userId = await requireUserId(request);
-  invariant(params.noteId, "noteId not found");
+  invariant(params.reportId, "reportId not found");
 
-  await deleteNote({ id: params.noteId, userId });
+  await deleteReport({ id: params.reportId, userId });
 
-  return redirect("/notes");
+  return redirect("/dashboard/reports");
 };
 
 export default function NoteDetailsPage() {
@@ -36,8 +37,12 @@ export default function NoteDetailsPage() {
 
   return (
     <div>
-      <h3 className="text-2xl font-bold">{data.note.title}</h3>
-      <p className="py-6">{data.note.body}</p>
+      <h3 className="text-2xl font-bold">{data.report.title}</h3>
+      <p className="py-6">Description: {data.report.description}</p>
+      <p className="py-6">PlaygroundId: {data.report.playgroundId}</p>
+      <p className="py-6">Status: {data.report.status}</p>
+      <p className="py-6">Created at: {data.report.createdAt}</p>
+      <p className="py-6">Updated at: {data.report.updatedAt}</p>
       <hr className="my-4" />
       <Form method="post">
         <button

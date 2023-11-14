@@ -46,9 +46,9 @@ model Playground {
   type        String
   description String
   area        String
-  ball        String
-  skater      String
-  streetball  String
+  ball        Boolean  @default(false)
+  skater      Boolean
+  streetball  Boolean
   latitude    String
   longitude   String
   reports     Report[]

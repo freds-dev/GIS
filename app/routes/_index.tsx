@@ -2,7 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import { Sprout, Map } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "~/components/ui/button";
 import { useOptionalUser } from "~/utils";
 
 export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
@@ -51,7 +51,7 @@ export default function Index() {
             {user ? (
               <div className="flex w-full justify-around pb-24 lg:pb-0 fade-in">
                 <Button className="bounce-top-icons items-center justify-center rounded-md bg-purple-800 text-white">
-                  <Link to="/reports">View Reports for {user.email}</Link>
+                  <Link to="/dashboard">View dashboard for {user.email}</Link>
                 </Button>
               </div>
             ) : (

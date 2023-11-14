@@ -9,10 +9,10 @@ import {
 } from "react-map-gl/maplibre";
 
 import "maplibre-gl/dist/maplibre-gl.css";
-import { getAllPlaygrounds } from "~/models/playground.server";
+import { getAllPlaygroundsAsGeoJSON } from "~/models/playground.server";
 
 export async function loader() {
-  const playgrounds = await getAllPlaygrounds();
+  const playgrounds = await getAllPlaygroundsAsGeoJSON();
 
   return {
     playgrounds: playgrounds,
