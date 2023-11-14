@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMatches, useNavigate, useSearchParams } from "@remix-run/react";
 import { Cpu, Globe, MapPin } from "lucide-react";
 import { useState, useEffect, useCallback, useContext } from "react";

@@ -6,7 +6,6 @@ import NavbarHandler from "./navbar-handler";
 
 export const NavbarContext = createContext({
   open: false,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
   setOpen: (_open: boolean) => {},
 });
 

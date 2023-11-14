@@ -19,7 +19,6 @@ async function seed() {
     // no worries if it doesn't exist yet
   });
   //* cleanup the existing database (if any)
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   await prisma.playground.deleteMany({}).catch(() => {});
 
   const hashedPassword = await bcrypt.hash("racheliscool", 10);

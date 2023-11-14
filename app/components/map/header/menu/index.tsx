@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable react/jsx-no-duplicate-props */
 import { Link, useNavigation, useSearchParams } from "@remix-run/react";
 import {
   Globe,

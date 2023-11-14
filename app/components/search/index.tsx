@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/prefer-for-of */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 
 import SearchList from "./search-list";
@@ -58,7 +55,6 @@ export default function Search(props: SearchProps) {
     if (props.searchString.length < 2) {
       setSearchResultsLocation([]);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.searchString]);
 
   if (searchResultsLocation.length > 0 || searchResultsDevice.length > 0)

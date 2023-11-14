@@ -45,13 +45,11 @@ export default function useKeyboardNav(
     if (downPress && cursor < cursorMax - 1) {
       setCursor(cursor + 1);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [downPress, cursorMax]);
   useEffect(() => {
     if (upPress && cursor > 0) {
       setCursor(cursor - 1);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [upPress, cursorMin]);
 
   return {

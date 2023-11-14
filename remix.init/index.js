@@ -76,11 +76,7 @@ const updatePackageJson = ({ APP_NAME, packageJson, packageManager }) => {
   const {
     devDependencies,
     prisma: { seed: prismaSeed, ...prisma },
-    scripts: {
-      // eslint-disable-next-line no-unused-vars
-      "format:repo": _repoFormatScript,
-      ...scripts
-    },
+    scripts: { "format:repo": _repoFormatScript, ...scripts },
   } = packageJson.content;
 
   packageJson.update({
