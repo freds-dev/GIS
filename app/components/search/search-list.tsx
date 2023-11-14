@@ -1,16 +1,17 @@
 import { useMatches, useNavigate, useSearchParams } from "@remix-run/react";
 import { Cpu, Globe, MapPin } from "lucide-react";
 import { useState, useEffect, useCallback, useContext } from "react";
-// import { useMap } from "react-map-gl";
+import { useMap } from "react-map-gl";
 
 import SearchListItem from "./search-list-item";
+import { goTo } from "~/utils/map-helper";
 
 interface SearchListProps {
   searchResultsLocation: any[];
 }
 
 export default function SearchList(props: SearchListProps) {
-//   const { osem } = useMap();
+  const { map } = useMap();
   const navigate = useNavigate();
   const matches = useMatches();
 
@@ -28,13 +29,13 @@ export default function SearchList(props: SearchListProps) {
           <SearchListItem
             key={location.id}
             index={i}
-            active={true}
+            active={false}
             name={location.place_name}
             icon={location.place_type.includes("country") ? Globe : MapPin}
             controlPress={true}
             onMouseEnter={() => console.log("mouse enter")}
             onClick={() => {
-              //   goTo(osem, location);
+                goTo(map, location);
               //   setShowSearchCallback(false);
               //   navigate(navigateTo);
             }}

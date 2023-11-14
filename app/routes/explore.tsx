@@ -72,6 +72,7 @@ export default function Explore() {
       <MapProvider>
         <Header />
         <ReactMap
+          id="map"
           initialViewState={{
             longitude: 7.67,
             latitude: 51.988,

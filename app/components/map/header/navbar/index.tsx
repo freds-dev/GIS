@@ -3,6 +3,7 @@ import { SearchIcon, XIcon } from "lucide-react";
 import { useState, useEffect, useRef, createContext } from "react";
 
 import NavbarHandler from "./navbar-handler";
+import { useMap } from "react-map-gl";
 
 export const NavbarContext = createContext({
   open: false,
@@ -14,14 +15,20 @@ export default function NavBar() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchString, setSearchString] = useState("");
 
-  // TODO: CLOSE ON CLICK OUTSIDE - NOT WORKING DUES TO MAPBOX GL IMPORT ISSUES
-  // const { osem: mapRef } = reactMapGL.useMap();
+  const { map: mapRef, onMoveStart: test } = useMap();
 
-  // useEffect(() => {
-  //   if (mapRef) {
-  //     mapRef.on("click", () => setOpen(false));
-  //   }
-  // }, [mapRef]);
+  useEffect(() => {
+    if (mapRef) {
+      mapRef.on("movestart", () => setOpen(false));
+    }
+  }
+  , [mapRef]);
+
+  useEffect(() => {
+    if (mapRef) {
+      mapRef.on("click", () => setOpen(false));
+    }
+  }, [mapRef]);
 
   // register keyboard shortcuts
   useEffect(() => {
