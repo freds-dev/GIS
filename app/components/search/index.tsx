@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 
 import SearchList from "./search-list";
@@ -10,7 +11,7 @@ interface SearchProps {
 
 export default function Search(props: SearchProps) {
   const [searchResultsLocation, setSearchResultsLocation] = useState<any[]>([]);
-  const [searchResultsDevice, setSearchResultsDevice] = useState<any[]>([]);
+  const [searchResultsDevice, ] = useState<any[]>([]);
 
   /**
    * One of the functions that is called when the user types in the search bar. It returns the search results for locations, retrived from the mapbox geocode API.

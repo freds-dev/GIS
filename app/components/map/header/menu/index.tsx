@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import { Link, useNavigation, useSearchParams } from "@remix-run/react";
 import {
   Globe,

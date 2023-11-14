@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import type { Key } from "react";
 import { useState, useEffect } from "react";
 

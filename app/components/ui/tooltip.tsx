@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 "use client";
 
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";

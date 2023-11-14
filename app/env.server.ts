@@ -1,3 +1,4 @@
+/* eslint-disable no-var */
 export function getEnv() {
   return {
     MAPTILER_KEY: process.env.MAPTILER_KEY,

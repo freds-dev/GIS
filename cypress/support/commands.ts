@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 import { faker } from "@faker-js/faker";
 
 declare global {

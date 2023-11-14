@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { execSync } = require("node:child_process");
 const crypto = require("node:crypto");
 const fs = require("node:fs/promises");

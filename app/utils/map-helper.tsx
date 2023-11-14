@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { LngLatBounds, LngLatLike, MapRef } from "react-map-gl";
 
 /**

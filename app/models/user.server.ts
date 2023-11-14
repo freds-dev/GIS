@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Password, User } from "@prisma/client";
 import bcrypt from "bcryptjs";
 

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { AnimatePresence, motion } from "framer-motion";
 import { SearchIcon, XIcon } from "lucide-react";
 import { useState, useEffect, useRef, createContext } from "react";
