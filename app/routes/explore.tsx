@@ -9,6 +9,7 @@ import {
 } from "react-map-gl/maplibre";
 
 import "maplibre-gl/dist/maplibre-gl.css";
+import Header from "~/components/map/header";
 import { getAllPlaygroundsAsGeoJSON } from "~/models/playground.server";
 
 export async function loader() {
@@ -69,6 +70,7 @@ export default function Explore() {
   return (
     <div className="">
       <MapProvider>
+        <Header />
         <ReactMap
           initialViewState={{
             longitude: 7.67,
