@@ -76,7 +76,8 @@ export default function DashboardPage() {
 
       <div className="w-full h-full flex flex-col justify-between">
         {/* <!-- Header --> */}
-        <header className="h-16 w-full flex items-center relative justify-end px-5 space-x-10 bg-gray-800">
+        <header className="h-16 w-full flex items-center relative justify-between px-5 space-x-10 bg-gray-800">
+          <div className="font-bold text-white text-xl">Playgrounds Hub</div>
           {user ? (
             <div className="flex flex-shrink-0 items-center space-x-4 text-white">
               <div className="flex flex-col items-end ">
@@ -91,7 +92,7 @@ export default function DashboardPage() {
         </header>
 
         {/* <!-- Main --> */}
-        <main className="max-w-full h-full flex relative overflow-y-hidden">
+        <main className="max-w-full h-full flex items-center justify-center relative overflow-y-scroll">
           {/* <!-- Outlet --> */}
           <Outlet />
         </main>

@@ -1,7 +1,3 @@
 export default function DashboardSettingsPage() {
-  return (
-    <div className="h-full">
-      <h1>Settings</h1>
-    </div>
-  );
+  return <div className="flex items-center justify-center">Settings</div>;
 }
