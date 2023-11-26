@@ -56,7 +56,6 @@ export default function NewReportPage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
     const formData = new FormData();
     formData.append("title", values.title);
     formData.append("description", values.description);

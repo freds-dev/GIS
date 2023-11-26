@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import csvtojson from "csvtojson";
@@ -19,7 +20,6 @@ async function seed() {
     // no worries if it doesn't exist yet
   });
   //* cleanup the existing database (if any)
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   await prisma.playground.deleteMany({}).catch(() => {});
 
   const hashedPassword = await bcrypt.hash("racheliscool", 10);

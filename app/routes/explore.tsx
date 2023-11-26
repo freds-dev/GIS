@@ -9,13 +9,16 @@ import {
 } from "react-map-gl/maplibre";
 
 import "maplibre-gl/dist/maplibre-gl.css";
-import { getAllPlaygroundsAsGeoJSON } from "~/models/playground.server";
+import Header from "~/components/map/header";
+import { getAllPlaygrounds, getAllPlaygroundsAsGeoJSON } from "~/models/playground.server";
 
 export async function loader() {
   const playgrounds = await getAllPlaygroundsAsGeoJSON();
+  const plainPlaygrounds = await getAllPlaygrounds();
 
   return {
     playgrounds: playgrounds,
+    plainPlaygrounds: plainPlaygrounds,
   };
 }
 
@@ -69,7 +72,9 @@ export default function Explore() {
   return (
     <div className="">
       <MapProvider>
+        <Header />
         <ReactMap
+          id="map"
           initialViewState={{
             longitude: 7.67,
             latitude: 51.988,
@@ -100,7 +105,7 @@ export default function Explore() {
             <Layer {...clusterCountLayer} />
             <Layer {...unclusteredPointLayer} />
           </Source>
-          <NavigationControl position="top-right" showCompass={false} />
+          <NavigationControl position="bottom-right" showCompass={false} />
         </ReactMap>
       </MapProvider>
     </div>
