@@ -50,7 +50,7 @@ export const goToLocationBBox = (
  * @param lat latitude of the device
  * @param id id of the device
  */
-export const goToDevice = (
+export const goToPlayground = (
   map: MapRef | undefined,
   lng: number,
   lat: number,
@@ -66,8 +66,8 @@ export const goToDevice = (
 };
 
 export const goTo = (map: MapRef | undefined, item: any) => {
-  if (item.type === "device") {
-    goToDevice(map, item.lng, item.lat, item.deviceId);
+  if (item.type === "playground") {
+    goToPlayground(map, item.lng, item.lat, item.deviceId);
   } else if (item.type === "location") {
     if (item.bbox) {
       goToLocationBBox(map, item.bbox);
