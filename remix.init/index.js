@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { execSync } = require("node:child_process");
 const crypto = require("node:crypto");
 const fs = require("node:fs/promises");
@@ -76,11 +77,7 @@ const updatePackageJson = ({ APP_NAME, packageJson, packageManager }) => {
   const {
     devDependencies,
     prisma: { seed: prismaSeed, ...prisma },
-    scripts: {
-      // eslint-disable-next-line no-unused-vars
-      "format:repo": _repoFormatScript,
-      ...scripts
-    },
+    scripts: { "format:repo": _repoFormatScript, ...scripts },
   } = packageJson.content;
 
   packageJson.update({

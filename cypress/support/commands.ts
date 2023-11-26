@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 import { faker } from "@faker-js/faker";
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Cypress {
     interface Chainable {
       /**
