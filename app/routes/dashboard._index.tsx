@@ -49,8 +49,8 @@ const cards = [
 export default function DashboardPage() {
   return (
     <div className="flex items-center justify-center flex-wrap gap-4">
-      {cards.map((card) => (
-        <Card className="w-1/4" key={card.title}>
+      {cards.map((card, i) => (
+        <Card className="w-1/4" key={i}>
           <CardHeader>
             <CardTitle>{card.title}</CardTitle>
             <CardDescription>{card.description}</CardDescription>
