@@ -6,13 +6,18 @@ import { useState, useEffect, useRef, createContext } from "react";
 
 import NavbarHandler from "./navbar-handler";
 import { useMap } from "react-map-gl";
+import { Playground } from "@prisma/client";
+
+interface NavBarProps {
+  playgrounds: Playground[];
+}
 
 export const NavbarContext = createContext({
   open: false,
   setOpen: (_open: boolean) => {},
 });
 
-export default function NavBar() {
+export default function NavBar(props: NavBarProps) {
   const [open, setOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchString, setSearchString] = useState("");
@@ -23,8 +28,7 @@ export default function NavBar() {
     if (mapRef) {
       mapRef.on("movestart", () => setOpen(false));
     }
-  }
-  , [mapRef]);
+  }, [mapRef]);
 
   useEffect(() => {
     if (mapRef) {
@@ -96,7 +100,10 @@ export default function NavBar() {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
               >
-                <NavbarHandler searchString={searchString} />
+                <NavbarHandler
+                  playgrounds={props.playgrounds}
+                  searchString={searchString}
+                />
               </motion.div>
             ) : null}
           </AnimatePresence>

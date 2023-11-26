@@ -6,41 +6,46 @@ import Search from "~/components/search";
 import { cn } from "~/utils/utils";
 
 import useKeyboardNav from "./use-keyboard-nav";
+import { Playground } from "@prisma/client";
 
 interface NavBarHandlerProps {
   searchString: string;
+  playgrounds: Playground[];
 }
 
 function getSections() {
   return [
     {
-      title: "Datum & Zeit",
+      title: "Size & Location",
       icon: Clock4Icon,
-      color: "bg-blue-100",
-      component: <div>Datum & Zeit</div>,
+      color: "bg-blue-600",
+      component: <div>Size & Location</div>,
     },
     {
-      title: "Filter",
+      title: "Area",
       icon: Filter,
-      color: "bg-gray-300",
-      component: <div>Filter</div>,
+      color: "bg-gray-600",
+      component: <div>Area</div>,
     },
     {
-      title: "Einstellungen",
+      title: "Settings",
       icon: Cog,
-      color: "bg-green-100",
-      component: <div>Einstellungen</div>,
+      color: "bg-green-600",
+      component: <div>Settings</div>,
     },
   ];
 }
 
-export default function NavbarHandler({ searchString }: NavBarHandlerProps) {
+export default function NavbarHandler({
+  searchString,
+  playgrounds,
+}: NavBarHandlerProps) {
   const sections = getSections();
 
   const { cursor, setCursor } = useKeyboardNav(0, 0, sections.length);
 
   if (searchString.length >= 2) {
-    return <Search searchString={searchString} />;
+    return <Search playgrounds={playgrounds} searchString={searchString} />;
   }
 
   return (
