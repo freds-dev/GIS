@@ -1,4 +1,4 @@
-import { useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import {
   Layer,
   LayerProps,
@@ -10,7 +10,10 @@ import {
 
 import "maplibre-gl/dist/maplibre-gl.css";
 import Header from "~/components/map/header";
-import { getAllPlaygrounds, getAllPlaygroundsAsGeoJSON } from "~/models/playground.server";
+import {
+  getAllPlaygrounds,
+  getAllPlaygroundsAsGeoJSON,
+} from "~/models/playground.server";
 
 export async function loader() {
   const playgrounds = await getAllPlaygroundsAsGeoJSON();
@@ -106,6 +109,7 @@ export default function Explore() {
             <Layer {...unclusteredPointLayer} />
           </Source>
           <NavigationControl position="bottom-right" showCompass={false} />
+          <Outlet />
         </ReactMap>
       </MapProvider>
     </div>

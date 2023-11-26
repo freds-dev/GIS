@@ -109,7 +109,7 @@ export default function SearchList(props: SearchListProps) {
       ) : null}
       {props.searchResultsPlaygrounds.map((playground: any, i) => (
         <SearchListItem
-          key={playground.deviceId}
+          key={playground.playgroundId}
           index={i}
           active={i === cursor}
           name={playground.display_name}
