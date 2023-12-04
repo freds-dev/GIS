@@ -1,5 +1,6 @@
 import { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { redirect } from "remix-typedjson";
 import {
   Card,
   CardContent,
@@ -18,6 +19,9 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const allReports = await getAllReports();
   const amountUsers = await getAmountUsers();
 
+  if (user?.role !== "ADMIN" || !user) {
+    return redirect("/dashboard/playgrounds");
+  }
   return {
     user: user,
     plainPlaygrounds: plainPlaygrounds,
@@ -28,10 +32,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
 export default function DashboardPage() {
   const data = useLoaderData<typeof loader>();
-  console.log(
-    "🚀 ~ file: dashboard._index.tsx:31 ~ DashboardPage ~ data:",
-    data,
-  );
   if (data.user?.role === "ADMIN") {
     return (
       <div className="w-full px-8">
