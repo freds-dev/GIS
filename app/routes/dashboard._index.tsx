@@ -1,68 +1,119 @@
+import { LoaderFunctionArgs } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
+import { getAllPlaygrounds } from "~/models/playground.server";
+import { getAllReports } from "~/models/report.server";
+import { getAmountUsers } from "~/models/user.server";
+import { getUser } from "~/session.server";
 
-const cards = [
-  {
-    title: "Card Title",
-    description: "Card Description",
-    content: "Card Content",
-    footer: "Card Footer",
-  },
-  {
-    title: "Card Title",
-    description: "Card Description",
-    content: "Card Content",
-    footer: "Card Footer",
-  },
-  {
-    title: "Card Title",
-    description: "Card Description",
-    content: "Card Content",
-    footer: "Card Footer",
-  },
-  {
-    title: "Card Title",
-    description: "Card Description",
-    content: "Card Content",
-    footer: "Card Footer",
-  },
-  {
-    title: "Card Title",
-    description: "Card Description",
-    content: "Card Content",
-    footer: "Card Footer",
-  },
-  {
-    title: "Card Title",
-    description: "Card Description",
-    content: "Card Content",
-    footer: "Card Footer",
-  },
-];
+export async function loader({ request }: LoaderFunctionArgs) {
+  const user = await getUser(request);
+  const plainPlaygrounds = await getAllPlaygrounds();
+  const allReports = await getAllReports();
+  const amountUsers = await getAmountUsers();
+
+  return {
+    user: user,
+    plainPlaygrounds: plainPlaygrounds,
+    allReports: allReports,
+    amountUsers: amountUsers,
+  };
+}
 
 export default function DashboardPage() {
-  return (
-    <div className="flex items-center justify-center flex-wrap gap-4">
-      {cards.map((card, i) => (
-        <Card className="w-1/4" key={i}>
-          <CardHeader>
-            <CardTitle>{card.title}</CardTitle>
-            <CardDescription>{card.description}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>{card.content}</p>
-          </CardContent>
-          <CardFooter>
-            <p>{card.footer}</p>
-          </CardFooter>
-        </Card>
-      ))}
-    </div>
+  const data = useLoaderData<typeof loader>();
+  console.log(
+    "🚀 ~ file: dashboard._index.tsx:31 ~ DashboardPage ~ data:",
+    data,
   );
+  if (data.user?.role === "ADMIN") {
+    return (
+      <div className="w-full px-8">
+        <div className="flex w-full items-center justify-evenly py-4">
+          <Card className="">
+            <CardHeader>
+              <CardTitle>Playgrounds</CardTitle>
+              <CardDescription>Total amount of playgrounds</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>{data.plainPlaygrounds.length}</p>
+            </CardContent>
+          </Card>
+          <Card className="">
+            <CardHeader>
+              <CardTitle>Reports</CardTitle>
+              <CardDescription>Total amount of reports</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>{data.allReports.length}</p>
+            </CardContent>
+          </Card>
+          <Card className="">
+            <CardHeader>
+              <CardTitle>Users</CardTitle>
+              <CardDescription>Total amount of users</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>{data.amountUsers}</p>
+            </CardContent>
+          </Card>
+          <Card className="">
+            <CardHeader>
+              <CardTitle>Users</CardTitle>
+              <CardDescription>Total amount of users</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>{data.amountUsers}</p>
+            </CardContent>
+          </Card>
+        </div>
+        <div className="flex w-full items-center justify-evenly py-4">
+          <Card className="">
+            <CardHeader>
+              <CardTitle>Playgrounds</CardTitle>
+              <CardDescription>Total amount of playgrounds</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>{data.plainPlaygrounds.length}</p>
+            </CardContent>
+          </Card>
+          <Card className="">
+            <CardHeader>
+              <CardTitle>Reports</CardTitle>
+              <CardDescription>Total amount of reports</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>{data.allReports.length}</p>
+            </CardContent>
+          </Card>
+          <Card className="">
+            <CardHeader>
+              <CardTitle>Users</CardTitle>
+              <CardDescription>Total amount of users</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>{data.amountUsers}</p>
+            </CardContent>
+          </Card>
+          <Card className="">
+            <CardHeader>
+              <CardTitle>Users</CardTitle>
+              <CardDescription>Total amount of users</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>{data.amountUsers}</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    );
+  } else {
+    return <div>Not allowed</div>;
+  }
 }

@@ -33,6 +33,10 @@ export async function deleteUserByEmail(email: User["email"]) {
   return prisma.user.delete({ where: { email } });
 }
 
+export async function getAmountUsers() {
+  return prisma.user.count();
+}
+
 export async function verifyLogin(
   email: User["email"],
   password: Password["hash"],

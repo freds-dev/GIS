@@ -32,7 +32,7 @@ export const action = async ({ params, request }: ActionFunctionArgs) => {
   return redirect("/dashboard/reports");
 };
 
-export default function NoteDetailsPage() {
+export default function ReportDetailsPage() {
   const data = useLoaderData<typeof loader>();
 
   return (

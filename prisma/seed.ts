@@ -35,6 +35,8 @@ async function seed() {
     },
   });
 
+  console.log("User created.", user);
+
   const playgrounds = await csvtojson({
     delimiter: ";",
   }).fromFile("prisma/spielplaetze.csv");
@@ -44,7 +46,7 @@ async function seed() {
     const isBall = playground.Ballspielplatz !== "" ? true : false;
     const isSkater = playground.Skater !== "" ? true : false;
     const isStreetball = playground.Streetball !== "" ? true : false;
-    await prisma.playground.create({
+    const createdPlayground = await prisma.playground.create({
       data: {
         name: playground.Name.substring(3),
         name2: playground.Name2,
@@ -60,27 +62,31 @@ async function seed() {
         longitude: playground.Latitude,
       },
     });
+
+    // create a report for every 7th playground
+    if (i % 7 === 0) {
+      await prisma.report.create({
+        data: {
+          title: `Report for ${createdPlayground.name}`,
+          description: `This is a report for ${createdPlayground.name}`,
+          user: {
+            connect: {
+              id: user.id,
+            },
+          },
+          playground: {
+            connect: {
+              id: createdPlayground.id,
+            },
+          },
+        },
+      });
+    }
     printProgress(`ℹ️  Imported ${i} of ${playgrounds.length} playgrounds.`);
   }
 
   //line break
   console.log("\n");
-
-  await prisma.note.create({
-    data: {
-      title: "My first note",
-      body: "Hello, world!",
-      userId: user.id,
-    },
-  });
-
-  await prisma.note.create({
-    data: {
-      title: "My second note",
-      body: "Hello, world!",
-      userId: user.id,
-    },
-  });
 
   console.log(`Database has been seeded. 🌱`);
 }

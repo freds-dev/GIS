@@ -29,6 +29,38 @@ export function getReportListItems({ userId }: { userId: User["id"] }) {
   });
 }
 
+// function to get all reports
+export function getAllReports() {
+  return prisma.report.findMany({
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      user: {
+        select: {
+          email: true,
+        },
+      },
+      playground: {
+        select: {
+          name: true,
+          name2: true,
+          size: true,
+          type: true,
+          description: true,
+          area: true,
+          ball: true,
+          skater: true,
+          streetball: true,
+          latitude: true,
+          longitude: true,
+        },
+      },
+    },
+    orderBy: { updatedAt: "desc" },
+  });
+}
+
 export function createReport({
   description,
   title,
