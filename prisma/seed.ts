@@ -35,6 +35,26 @@ async function seed() {
     },
   });
 
+  // create 31 more random users
+  for (let i = 0; i < 31; i++) {
+    const email = `
+      ${Math.random().toString(36).substring(2, 15)}@${Math.random()
+        .toString(36)
+        .substring(2, 15)}.com
+    `;
+    const hashedPassword = await bcrypt.hash("racheliscool", 10);
+    await prisma.user.create({
+      data: {
+        email,
+        password: {
+          create: {
+            hash: hashedPassword,
+          },
+        },
+      },
+    });
+  }
+
   console.log("User created.", user);
 
   const playgrounds = await csvtojson({
@@ -63,15 +83,22 @@ async function seed() {
       },
     });
 
-    // create a report for every 7th playground
-    if (i % 7 === 0) {
+    // create a report for every 5th playground, split them between users and make createdAt random inbetween noe and 5 days ago
+    if (i % 5 === 0) {
+      const randomUser = await prisma.user.findFirst({
+        skip: Math.floor(Math.random() * 32),
+      });
+      const randomDate = new Date(
+        new Date().getTime() -
+          Math.floor(Math.random() * 5) * 24 * 60 * 60 * 1000,
+      );
       await prisma.report.create({
         data: {
-          title: `Report for ${createdPlayground.name}`,
-          description: `This is a report for ${createdPlayground.name}`,
+          title: "This is a report",
+          description: "This is a report description",
           user: {
             connect: {
-              id: user.id,
+              id: randomUser?.id,
             },
           },
           playground: {
@@ -79,6 +106,7 @@ async function seed() {
               id: createdPlayground.id,
             },
           },
+          createdAt: randomDate,
         },
       });
     }
