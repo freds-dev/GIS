@@ -4,14 +4,9 @@ import { prisma } from "~/db.server";
 
 export type { Report } from "@prisma/client";
 
-export function getReport({
-  id,
-  userId,
-}: Pick<Report, "id"> & {
-  userId: User["id"];
-}) {
+export function getReport({ id }: Pick<Report, "id">) {
   return prisma.report.findFirst({
-    where: { id, userId },
+    where: { id },
   });
 }
 

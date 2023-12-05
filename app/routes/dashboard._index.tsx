@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { Flag, Info, LandPlot, Users } from "lucide-react";
 import { redirect } from "remix-typedjson";
 import PlotComponent from "~/components/dashboard/plot";
@@ -136,6 +136,9 @@ export default function DashboardPage() {
               <h3 className="font-semibold leading-none tracking-tight">
                 New reports by day
               </h3>
+              <p className="text-sm text-muted-foreground">
+                New reports over the last 5 days.
+              </p>
             </div>
             <div className="p-6 pt-0 pl-2">
               <PlotComponent data={data.reportCountPerDay} />
@@ -177,9 +180,9 @@ export default function DashboardPage() {
                           {report.user.email}
                         </p>
                       </div>
-                      <div className="ml-auto font-medium">
-                        <Info />
-                      </div>
+                      <Link to={"/dashboard/reports/" + report.id} className="ml-auto font-medium">
+                        <Info className="cursor-pointer" />
+                      </Link>
                     </div>
                   </motion.div>
                 ))}
