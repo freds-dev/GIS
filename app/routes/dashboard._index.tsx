@@ -132,7 +132,7 @@ export default function DashboardPage() {
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7 pt-4">
           <div className="rounded-xl border bg-card text-card-foreground shadow col-span-4">
-            <div className="flex flex-col space-y-1.5 p-6">
+            <div className="flex flex-col space-y-1.5 p-6 pb-0">
               <h3 className="font-semibold leading-none tracking-tight">
                 New reports by day
               </h3>
@@ -146,7 +146,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="rounded-xl border bg-card text-card-foreground shadow col-span-3">
-            <div className="flex flex-col space-y-1.5 p-6">
+            <div className="flex flex-col space-y-1.5 p-6 pb-0">
               <h3 className="font-semibold leading-none tracking-tight">
                 Recent Reports
               </h3>
