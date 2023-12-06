@@ -146,7 +146,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="rounded-xl border bg-card text-card-foreground shadow col-span-3">
-            <div className="flex flex-col space-y-1.5 p-6 pb-0">
+            <div className="flex flex-col space-y-1.5 p-6">
               <h3 className="font-semibold leading-none tracking-tight">
                 Recent Reports
               </h3>

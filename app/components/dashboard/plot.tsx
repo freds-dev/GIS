@@ -16,6 +16,20 @@ interface PlotProps {
   }[];
 }
 
+// function that returns the color depending on the input status (PENDIN, IN_PROGRESS, DONE), (red, yellow, green)
+function getColor(status: string) {
+  switch (status) {
+    case "PENDING":
+      return "#EC8F5E";
+    case "IN_PROGRESS":
+      return "#F3B664";
+    case "DONE":
+      return "#9FBB73";
+    default:
+      return "black";
+  }
+}
+
 export default function Plot(props: PlotProps) {
   const { data } = props;
 
@@ -36,9 +50,8 @@ export default function Plot(props: PlotProps) {
         data={legendData}
       /> */}
       <VictoryStack
-        domainPadding={{ x: 40, y: 40 }}
+        domainPadding={{ x: 20, y: 40 }}
         containerComponent={<VictoryContainer responsive={true} />}
-        colorScale={["green", "orange", "gold"]}
       >
         {uniqueStatuses.map((status, index) => (
           <VictoryBar
@@ -49,6 +62,9 @@ export default function Plot(props: PlotProps) {
               y: entry.counts[status] || 0, // Use 0 if the value is undefined or NaN
               label: `${status}: ${entry.counts[status] || 0}`,
             }))}
+            style={{
+              data: { fill: getColor(status) },
+            }}
             x="x"
             y="y"
             barWidth={20}

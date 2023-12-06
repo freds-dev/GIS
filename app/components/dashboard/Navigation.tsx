@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NavLink } from "@remix-run/react";
-import { Flag, Settings, TableProperties, User } from "lucide-react";
+import { Flag, TableProperties, User } from "lucide-react";
 
 export default function Navigation(props: any) {
   return (
@@ -53,7 +53,7 @@ export default function Navigation(props: any) {
         </NavLink>
 
         {/* <!-- Settings --> */}
-        <NavLink
+        {/* <NavLink
           to="settings"
           className={({ isActive, isPending }) =>
             isPending
@@ -64,7 +64,7 @@ export default function Navigation(props: any) {
           }
         >
           <Settings />
-        </NavLink>
+        </NavLink> */}
       </aside>
     </>
   );
