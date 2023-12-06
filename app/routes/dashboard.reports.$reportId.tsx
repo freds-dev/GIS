@@ -11,11 +11,10 @@ import invariant from "tiny-invariant";
 import { getReport, deleteReport } from "~/models/report.server";
 import { requireUserId } from "~/session.server";
 
-export const loader = async ({ params, request }: LoaderFunctionArgs) => {
-  const userId = await requireUserId(request);
+export const loader = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.reportId, "reportId not found");
 
-  const report = await getReport({ id: params.reportId, userId });
+  const report = await getReport({ id: params.reportId });
   if (!report) {
     throw new Response("Not Found", { status: 404 });
   }
@@ -32,7 +31,7 @@ export const action = async ({ params, request }: ActionFunctionArgs) => {
   return redirect("/dashboard/reports");
 };
 
-export default function NoteDetailsPage() {
+export default function ReportDetailsPage() {
   const data = useLoaderData<typeof loader>();
 
   return (

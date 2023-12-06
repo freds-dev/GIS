@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Status } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import csvtojson from "csvtojson";
 
@@ -35,6 +35,28 @@ async function seed() {
     },
   });
 
+  // create 31 more random users
+  for (let i = 0; i < 31; i++) {
+    const email = `
+      ${Math.random().toString(36).substring(2, 15)}@${Math.random()
+        .toString(36)
+        .substring(2, 15)}.com
+    `;
+    const hashedPassword = await bcrypt.hash("racheliscool", 10);
+    await prisma.user.create({
+      data: {
+        email,
+        password: {
+          create: {
+            hash: hashedPassword,
+          },
+        },
+      },
+    });
+  }
+
+  console.log("User created.", user);
+
   const playgrounds = await csvtojson({
     delimiter: ";",
   }).fromFile("prisma/spielplaetze.csv");
@@ -44,7 +66,7 @@ async function seed() {
     const isBall = playground.Ballspielplatz !== "" ? true : false;
     const isSkater = playground.Skater !== "" ? true : false;
     const isStreetball = playground.Streetball !== "" ? true : false;
-    await prisma.playground.create({
+    const createdPlayground = await prisma.playground.create({
       data: {
         name: playground.Name.substring(3),
         name2: playground.Name2,
@@ -60,27 +82,43 @@ async function seed() {
         longitude: playground.Latitude,
       },
     });
+
+    // create a report for every 5th playground, split them between users and make createdAt random inbetween noe and 5 days ago also give them a random status (PENDING, IN_PROGRESS, DONE)
+    if (i % 5 === 0) {
+      const randomUser = await prisma.user.findFirst({
+        skip: Math.floor(Math.random() * 32),
+      });
+      const randomDate = new Date(
+        new Date().getTime() -
+          Math.floor(Math.random() * 5) * 24 * 60 * 60 * 1000,
+      );
+      const randomStatus: Status = ["PENDING", "IN_PROGRESS", "DONE"][
+        Math.floor(Math.random() * 3)
+      ] as Status;
+      await prisma.report.create({
+        data: {
+          title: "This is a report",
+          description: "This is a report description",
+          status: randomStatus,
+          user: {
+            connect: {
+              id: randomUser?.id,
+            },
+          },
+          playground: {
+            connect: {
+              id: createdPlayground.id,
+            },
+          },
+          createdAt: randomDate,
+        },
+      });
+    }
     printProgress(`ℹ️  Imported ${i} of ${playgrounds.length} playgrounds.`);
   }
 
   //line break
   console.log("\n");
-
-  await prisma.note.create({
-    data: {
-      title: "My first note",
-      body: "Hello, world!",
-      userId: user.id,
-    },
-  });
-
-  await prisma.note.create({
-    data: {
-      title: "My second note",
-      body: "Hello, world!",
-      userId: user.id,
-    },
-  });
 
   console.log(`Database has been seeded. 🌱`);
 }

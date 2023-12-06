@@ -1,29 +1,41 @@
+import { LoaderFunctionArgs } from "@remix-run/node";
 import {
   Link,
   Outlet,
   isRouteErrorResponse,
+  useLoaderData,
   useRouteError,
 } from "@remix-run/react";
+import { redirect } from "remix-typedjson";
 import Navigation from "~/components/dashboard/Navigation";
+import { getUser } from "~/session.server";
 
-import { useUser } from "~/utils";
+export async function loader({ request }: LoaderFunctionArgs) {
+  const user = await getUser(request);
+  if (!user) {
+    return redirect("/login");
+  }
+  return {
+    user: user,
+  };
+}
 
 export default function DashboardPage() {
-  const user = useUser();
+  const data = useLoaderData<typeof loader>();
 
   return (
     <div className="h-screen w-full bg-white relative flex overflow-hidden">
-      <Navigation />
+      <Navigation user={data.user} />
 
       <div className="w-full h-full flex flex-col justify-between">
         {/* <!-- Header --> */}
         <header className="h-16 w-full flex items-center relative justify-between px-5 space-x-10 bg-gray-800">
           <div className="font-bold text-white text-xl">Playgrounds Hub</div>
-          {user ? (
+          {data.user ? (
             <div className="flex flex-shrink-0 items-center space-x-4 text-white">
               <div className="flex flex-col items-end ">
-                <div className="text-md font-medium ">{user.email}</div>
-                <div className="text-sm font-regular">{user.role}</div>
+                <div className="text-md font-medium ">{data.user.email}</div>
+                <div className="text-sm font-regular">{data.user.role}</div>
               </div>
               <div className="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"></div>
             </div>
