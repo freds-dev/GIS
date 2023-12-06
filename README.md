@@ -15,17 +15,13 @@ Before getting started, ensure that you have the following prerequisites:
 
 ## Installation and Setup
 1. Install all required packages using the following command:
-   ```bash
-   npm install
+   `npm install`
 2. Build docker image and seed database with:
-  ```bash
-  npm run setup
+   `npm run setup`
 3. Build CSS files and other stuff needed:
-  ```bash
-  npm run build
+  `npm run build`
 4. Run the application:
-  ```bash
-  npm run dev
+  `npm run dev`
 
 ## Access the Application
 To access the application go to `https://localhost:3000`
