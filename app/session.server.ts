@@ -32,6 +32,17 @@ export async function getUserId(
   return userId;
 }
 
+// get user role
+export async function getUserRole(request: Request) {
+  const userId = await getUserId(request);
+  if (userId === undefined) return null;
+
+  const user = await getUserById(userId);
+  if (user) return user.role;
+
+  throw await logout(request);
+}
+
 export async function getUser(request: Request) {
   const userId = await getUserId(request);
   if (userId === undefined) return null;

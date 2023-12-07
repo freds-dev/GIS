@@ -77,7 +77,15 @@ export const columns: ColumnDef<Playground>[] = [
     accessorKey: "ball",
     header: "Ball",
     cell: ({ row }) => {
-      const ball = row.getValue("ball") ? <Check /> : <X />;
+      const ball = row.getValue("ball") ? (
+        <div className="flex items-center justify-center">
+          <Check />
+        </div>
+      ) : (
+        <div className="flex items-center justify-center">
+          <X />
+        </div>
+      );
       return ball;
     },
   },
@@ -85,7 +93,15 @@ export const columns: ColumnDef<Playground>[] = [
     accessorKey: "skater",
     header: "Skater",
     cell: ({ row }) => {
-      const skater = row.getValue("skater") ? <Check /> : <X />;
+      const skater = row.getValue("skater") ? (
+        <div className="flex items-center justify-center">
+          <Check />
+        </div>
+      ) : (
+        <div className="flex items-center justify-center">
+          <X />
+        </div>
+      );
       return skater;
     },
   },
@@ -93,7 +109,15 @@ export const columns: ColumnDef<Playground>[] = [
     accessorKey: "streetball",
     header: "Streetball",
     cell: ({ row }) => {
-      const streetball = row.getValue("streetball") ? <Check /> : <X />;
+      const streetball = row.getValue("streetball") ? (
+        <div className="flex items-center justify-center">
+          <Check />
+        </div>
+      ) : (
+        <div className="flex items-center justify-center">
+          <X />
+        </div>
+      );
       return streetball;
     },
   },
@@ -101,7 +125,7 @@ export const columns: ColumnDef<Playground>[] = [
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
-      const payment = row.original;
+      const playground = row.original;
 
       return (
         <DropdownMenu>
@@ -114,13 +138,18 @@ export const columns: ColumnDef<Playground>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
+              onClick={() => navigator.clipboard.writeText(playground.id)}
             >
-              Copy payment ID
+              Copy playground ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() =>
+                (window.location.href = "/explore/" + playground.id)
+              }
+            >
+              View playground on explorer
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

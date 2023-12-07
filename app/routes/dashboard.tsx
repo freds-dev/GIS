@@ -1,11 +1,13 @@
 import { LoaderFunctionArgs } from "@remix-run/node";
 import {
+  Form,
   Link,
   Outlet,
   isRouteErrorResponse,
   useLoaderData,
   useRouteError,
 } from "@remix-run/react";
+import { LogOut } from "lucide-react";
 import { redirect } from "remix-typedjson";
 import Navigation from "~/components/dashboard/Navigation";
 import { getUser } from "~/session.server";
@@ -38,6 +40,14 @@ export default function DashboardPage() {
                 <div className="text-sm font-regular">{data.user.role}</div>
               </div>
               <div className="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"></div>
+              <Form action="/logout" method="post">
+                <button
+                  type="submit"
+                  className="relative flex w-full cursor-pointer select-none items-center"
+                >
+                  <LogOut className="mr-2 h-5 w-5" />
+                </button>
+              </Form>
             </div>
           ) : (
             <Link to="login">Login</Link>
