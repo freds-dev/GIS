@@ -15,11 +15,8 @@ function printProgress(text: string) {
 async function seed() {
   const email = "rachel@remix.run";
 
-  // cleanup the existing database
-  await prisma.user.delete({ where: { email } }).catch(() => {
-    // no worries if it doesn't exist yet
-  });
-  //* cleanup the existing database (if any)
+  // cleanup the existing database (if any)
+  await prisma.user.deleteMany({}).catch(() => {});
   await prisma.playground.deleteMany({}).catch(() => {});
 
   const hashedPassword = await bcrypt.hash("racheliscool", 10);
