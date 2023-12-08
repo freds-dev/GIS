@@ -17,10 +17,12 @@ Before getting started, ensure that you have the following prerequisites:
 1. Install all required packages using the following command:
    `npm install`
 2. Build docker image and seed database with:
+   `npm run docker`
+3. Seed database
    `npm run setup`
-3. Build CSS files and other stuff needed:
+4. Build CSS files and other stuff needed:
   `npm run build`
-4. Run the application:
+5. Run the application:
   `npm run dev`
 
 ## Access the Application
