@@ -1,12 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NavLink } from "@remix-run/react";
-import { Flag, TableProperties, User } from "lucide-react";
+import { Flag, Gauge, Globe, TableProperties } from "lucide-react";
 
 export default function Navigation(props: any) {
   return (
     <>
       {/* <!-- Sidebar --> */}
       <aside className="h-full w-16 flex flex-col space-y-10 items-center justify-center relative bg-gray-800 text-white">
+        {/* <!-- Explore --> */}
+        <NavLink
+          to="/explore"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white"
+              : isActive
+              ? "h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear text-gray-800 bg-white"
+              : "h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white"
+          }
+        >
+          <Globe />
+        </NavLink>
         {/* <!-- Profile --> */}
         {props.user.role === "ADMIN" ? (
           <NavLink
@@ -20,7 +33,7 @@ export default function Navigation(props: any) {
                 : "h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white"
             }
           >
-            <User />
+            <Gauge />
           </NavLink>
         ) : null}
 
@@ -51,20 +64,6 @@ export default function Navigation(props: any) {
         >
           <Flag />
         </NavLink>
-
-        {/* <!-- Settings --> */}
-        {/* <NavLink
-          to="settings"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? "h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white"
-              : isActive
-              ? "h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear text-gray-800 bg-white"
-              : "h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white"
-          }
-        >
-          <Settings />
-        </NavLink> */}
       </aside>
     </>
   );

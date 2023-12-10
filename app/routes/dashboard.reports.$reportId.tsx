@@ -9,14 +9,20 @@ import {
 import invariant from "tiny-invariant";
 
 import { getReport, deleteReport } from "~/models/report.server";
-import { requireUserId } from "~/session.server";
+import { getUserRole, requireUserId } from "~/session.server";
 
-export const loader = async ({ params }: LoaderFunctionArgs) => {
+export const loader = async ({ params, request }: LoaderFunctionArgs) => {
   invariant(params.reportId, "reportId not found");
-
+  const userId = await requireUserId(request);
   const report = await getReport({ id: params.reportId });
+  const userRole = await getUserRole(request);
+  // report does not exist
   if (!report) {
-    throw new Response("Not Found", { status: 404 });
+    return redirect("/dashboard/reports");
+  }
+  // user is not the owner of the report and is not an admin
+  if (report.userId !== userId && userRole !== "ADMIN") {
+    return redirect("/dashboard/reports");
   }
 
   return json({ report });

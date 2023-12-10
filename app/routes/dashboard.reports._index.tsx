@@ -1,13 +1,21 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 import { LoaderFunctionArgs, json } from "@remix-run/node";
-import { Link, NavLink, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
+import { columns } from "~/components/reports/reports-columns";
+import { ReportsDataTable } from "~/components/reports/reports-data-table";
 
-import { getReportListItems } from "~/models/report.server";
-import { requireUserId } from "~/session.server";
+import { getAllReports, getReportListItems } from "~/models/report.server";
+import { getUserRole, requireUserId } from "~/session.server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const userId = await requireUserId(request);
-  const reportListItems = await getReportListItems({ userId });
-  return json({ reportListItems });
+  const userRole = await getUserRole(request);
+  const allReports =
+    userRole === "ADMIN"
+      ? await getAllReports()
+      : await getReportListItems({ userId });
+  return json({ allReports });
 };
 
 export default function DashboardPlaygroundsPage() {
@@ -20,24 +28,7 @@ export default function DashboardPlaygroundsPage() {
       </Link>
 
       <hr />
-      {data.reportListItems.length === 0 ? (
-        <p className="p-4">No reports yet</p>
-      ) : (
-        <ol>
-          {data.reportListItems.map((report) => (
-            <li key={report.id}>
-              <NavLink
-                className={({ isActive }) =>
-                  `block border-b p-4 text-xl ${isActive ? "bg-white" : ""}`
-                }
-                to={report.id}
-              >
-                📝 {report.title}
-              </NavLink>
-            </li>
-          ))}
-        </ol>
-      )}
+      <ReportsDataTable columns={columns} data={data.allReports} />
     </div>
   );
 }
