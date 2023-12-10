@@ -7,6 +7,7 @@ import { cn } from "~/utils/utils";
 
 import useKeyboardNav from "./use-keyboard-nav";
 import { Playground } from "@prisma/client";
+import FilterOptions from "~/components/filter-options";
 
 interface NavBarHandlerProps {
   searchString: string;
@@ -19,7 +20,7 @@ function getSections() {
       title: "Size & Location",
       icon: Clock4Icon,
       color: "bg-blue-600",
-      component: <div>Size & Location</div>,
+      component: <FilterOptions />,
     },
     {
       title: "Area",

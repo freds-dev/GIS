@@ -14,14 +14,22 @@ import {
   getAllPlaygrounds,
   getAllPlaygroundsAsGeoJSON,
 } from "~/models/playground.server";
+import { LoaderFunctionArgs } from "@remix-run/node";
+import { getFilteredDevices } from "~/utils/utils";
 
-export async function loader() {
+export async function loader({ request }: LoaderFunctionArgs) {
   const playgrounds = await getAllPlaygroundsAsGeoJSON();
   const plainPlaygrounds = await getAllPlaygrounds();
+
+  //* Get filtered devices if filter params exist in url
+  const url = new URL(request.url);
+  const urlFilterParams = new URLSearchParams(url.search);
+  const filteredPlaygrounds = getFilteredDevices(playgrounds, urlFilterParams);
 
   return {
     playgrounds: playgrounds,
     plainPlaygrounds: plainPlaygrounds,
+    filteredPlaygrounds: filteredPlaygrounds,
   };
 }
 
@@ -99,7 +107,7 @@ export default function Explore() {
           <Source
             id="my-data"
             type="geojson"
-            data={data.playgrounds}
+            data={data.filteredPlaygrounds}
             cluster={true}
             clusterMaxZoom={14}
             clusterRadius={50}
