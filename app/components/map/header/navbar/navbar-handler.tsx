@@ -17,7 +17,7 @@ interface NavBarHandlerProps {
 function getSections() {
   return [
     {
-      title: "Size & Location",
+      title: "Size & Activities",
       icon: Clock4Icon,
       color: "bg-blue-600",
       component: <FilterOptions />,

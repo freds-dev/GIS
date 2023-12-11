@@ -21,18 +21,21 @@ export function getFilteredDevices(
     filterParams.has("size") ||
     filterParams.has("type") ||
     filterParams.has("ball") ||
-    filterParams.has("skater") ||
+    filterParams.has("skate") ||
     filterParams.has("streetball")
   ) {
     // map through all playgrounds and filter based on selected values
     const results = playgrounds.features.filter((playground: any) => {
-      
       // return true if playground is selected
       return (
-        // check if selected values match device attributes
-        !filterParams.get("size") ||
-        parseInt(filterParams.get("size")?.toLowerCase() as string) <
-          parseInt(playground.properties.size.toLowerCase())
+        (!filterParams.get("size") ||
+          parseInt(filterParams.get("size")?.toLowerCase() as string) <
+            parseInt(playground.properties.size.toLowerCase())) &&
+        (!filterParams.get("streetball") ||
+          playground.properties.streetball === true) &&
+        (!filterParams.get("skate") ||
+          playground.properties.skater === true) &&
+        (!filterParams.get("ball") || playground.properties.ball === true)
       );
     });
     // return filtered devices
