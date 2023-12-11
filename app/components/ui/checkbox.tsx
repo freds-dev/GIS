@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 "use client"
 
+import * as React from "react"
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
 import { Check } from "lucide-react"
-import * as React from "react"
 
-import { cn } from "~/utils/utils"
+import { cn } from "app/utils/utils"
 
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
