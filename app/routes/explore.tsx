@@ -1,5 +1,6 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
 import {
+  GeolocateControl,
   Layer,
   LayerProps,
   MapProvider,
@@ -117,6 +118,7 @@ export default function Explore() {
             <Layer {...unclusteredPointLayer} />
           </Source>
           <NavigationControl position="bottom-right" showCompass={false} />
+          <GeolocateControl position="bottom-left" />
           <Outlet />
         </ReactMap>
       </MapProvider>

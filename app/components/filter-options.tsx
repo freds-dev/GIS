@@ -35,7 +35,7 @@ export default function FilterOptions() {
   }, [searchParams]);
 
   return (
-    <div className="mt-[8px] space-y-3 px-3 py-6 dark:text-zinc-200 flex flex-col justify-between items-stretch h-full">
+    <div className="space-y-3 py-2 px-3 dark:text-zinc-200 flex flex-col justify-between items-stretch h-full">
       <div className="space-y-2">
         <div className="space-y-[2px]">
           <Label className="text-base">
