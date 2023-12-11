@@ -5,7 +5,7 @@ import { Sprout, Map } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { useOptionalUser } from "~/utils";
 
-export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
+export const meta: MetaFunction = () => [{ title: "Playgrounds Hub" }];
 
 export default function Index() {
   const user = useOptionalUser();
