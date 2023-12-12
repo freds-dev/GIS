@@ -154,7 +154,7 @@ export default function Explore() {
             <Layer {...unclusteredPointLayer} />
           </Source>
           <NavigationControl position="bottom-right" showCompass={false} />
-          <GeolocateControl position="bottom-left" />
+          <GeolocateControl position="bottom-right" />
           <Outlet />
         </ReactMap>
       </MapProvider>
