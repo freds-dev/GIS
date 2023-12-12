@@ -2,8 +2,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData, useNavigation } from "@remix-run/react";
-import { Check, ChevronUp, Info, Minus, X } from "lucide-react";
+import { Link, useLoaderData, useNavigation } from "@remix-run/react";
+import { Check, ChevronUp, Info, Minus, Siren, X } from "lucide-react";
 import { useRef, useState } from "react";
 import Draggable, { DraggableData } from "react-draggable";
 import { typedjson } from "remix-typedjson";
@@ -138,6 +138,13 @@ export default function ExplorePlaygroundId() {
                   className="shadow-zinc-800/5 cursor-pointer rounded-xl border border-gray-100 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg hover:brightness-90 dark:bg-zinc-800 dark:text-zinc-200 dark:opacity-90"
                 >
                   <Minus />
+                </div>
+                <div className="shadow-zinc-800/5 cursor-pointer rounded-xl border border-gray-100 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg hover:brightness-90 dark:bg-zinc-800 dark:text-zinc-200 dark:opacity-90">
+                  <Link
+                    to={`/dashboard/reports/new?playgroundId=${data.playground.id}`}
+                  >
+                    <Siren />
+                  </Link>
                 </div>
               </div>
             </div>

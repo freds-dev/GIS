@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 
 import { Playground } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
-import { MoreHorizontal } from "lucide-react";
+import { Check, Clock, MoreHorizontal } from "lucide-react";
 
 import { Button } from "../ui/button";
 import {
@@ -15,6 +16,12 @@ import {
 } from "../ui/dropdown-menu";
 
 export const columns: ColumnDef<Playground>[] = [
+  {
+    accessorKey: "name", // Use the accessorKey that corresponds to the property in playground
+    header: "Playground Name",
+    // @ts-ignore
+    cell: ({ row }) => <div className="">{row.original.playground.name}</div>,
+  },
   {
     accessorKey: "id",
     header: "ID",
@@ -32,7 +39,11 @@ export const columns: ColumnDef<Playground>[] = [
   {
     accessorKey: "status",
     header: "Status",
-    cell: ({ row }) => <div className="">{row.getValue("status")}</div>,
+    cell: ({ row }) => (
+      <div className="flex items-center justify-center">
+        {row.getValue("status") === "DONE" ? <Check /> : <Clock />}
+      </div>
+    ),
   },
   {
     id: "actions",

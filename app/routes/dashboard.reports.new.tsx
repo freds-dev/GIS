@@ -23,6 +23,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
+import { Textarea } from "~/components/ui/textarea";
 import { getAllPlaygrounds } from "~/models/playground.server";
 
 export const loader = async () => {
@@ -93,7 +94,7 @@ export default function NewReportPage() {
             <FormItem>
               <FormLabel>Description</FormLabel>
               <FormControl>
-                <Input placeholder="Description..." {...field} />
+                <Textarea placeholder="Description..." {...field} />
               </FormControl>
               <FormDescription>What is missing or broken?</FormDescription>
               <FormMessage />
