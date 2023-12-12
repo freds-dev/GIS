@@ -37,7 +37,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 export const clusterLayer: LayerProps = {
   id: "clusters",
   type: "circle",
-  source: "earthquakes",
+  source: "playgrounds",
   filter: ["has", "point_count"],
   paint: {
     "circle-color": [
@@ -56,7 +56,7 @@ export const clusterLayer: LayerProps = {
 export const clusterCountLayer: LayerProps = {
   id: "cluster-count",
   type: "symbol",
-  source: "earthquakes",
+  source: "playgrounds",
   filter: ["has", "point_count"],
   layout: {
     "text-field": "{point_count_abbreviated}",
@@ -67,14 +67,20 @@ export const clusterCountLayer: LayerProps = {
 
 export const unclusteredPointLayer: LayerProps = {
   id: "unclustered-point",
-  type: "circle",
+  type: "symbol", // Change the type to 'symbol'
   source: "earthquakes",
   filter: ["!", ["has", "point_count"]],
+  layout: {
+    "icon-image": "marker", // Specify the icon image
+    "icon-size": 1, // Adjust the size of the icon
+    "icon-anchor": "bottom", // Adjust the anchor point of the icon
+    "text-field": "{title}", // If you have a title property in your data, you can display it as text
+    "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+    "text-offset": [0, 0.6], // Adjust the text offset
+    "text-anchor": "top", // Adjust the text anchor point
+  },
   paint: {
-    "circle-color": "#11b4da",
-    "circle-radius": 4,
-    "circle-stroke-width": 1,
-    "circle-stroke-color": "#fff",
+    "icon-color": "#ffffff",  // Set the icon color to white
   },
 };
 
@@ -104,9 +110,19 @@ export default function Explore() {
             ENV.MAPTILER_KEY
           }
           attributionControl={true}
+          onLoad={(e) => {
+            const map = e.target;
+            map.loadImage("/marker.png", (error, image) => {
+              if (error) throw error;
+              // Add the image to the map style.
+              if (image) {
+                map.addImage("marker", image);
+              }
+            });
+          }}
         >
           <Source
-            id="my-data"
+            id="playgrounds"
             type="geojson"
             data={data.filteredPlaygrounds}
             cluster={true}
