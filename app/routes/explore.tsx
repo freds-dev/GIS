@@ -18,6 +18,7 @@ import {
 } from "~/models/playground.server";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import { getFilteredDevices } from "~/utils/utils";
+import { getUser } from "~/session.server";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const playgrounds = await getAllPlaygroundsAsGeoJSON();
@@ -28,10 +29,13 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const urlFilterParams = new URLSearchParams(url.search);
   const filteredPlaygrounds = getFilteredDevices(playgrounds, urlFilterParams);
 
+  const user = await getUser(request);
+
   return {
     playgrounds: playgrounds,
     plainPlaygrounds: plainPlaygrounds,
     filteredPlaygrounds: filteredPlaygrounds,
+    user: user,
   };
 }
 
