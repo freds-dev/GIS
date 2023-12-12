@@ -1,8 +1,9 @@
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData, useNavigate } from "@remix-run/react";
 import {
   GeolocateControl,
   Layer,
   LayerProps,
+  MapLayerMouseEvent,
   MapProvider,
   NavigationControl,
   Map as ReactMap,
@@ -80,12 +81,25 @@ export const unclusteredPointLayer: LayerProps = {
     "text-anchor": "top", // Adjust the text anchor point
   },
   paint: {
-    "icon-color": "#ffffff",  // Set the icon color to white
+    "icon-color": "#ffffff", // Set the icon color to white
   },
 };
 
 export default function Explore() {
   const data = useLoaderData<typeof loader>();
+  const navigate = useNavigate();
+
+  const onMapClick = (e: MapLayerMouseEvent) => {
+    if (e.features && e.features.length > 0) {
+      const feature = e.features[0];
+
+      if (feature.layer.id === "unclustered-point") {
+        navigate(
+          `/explore/${feature.properties?.id}`,
+        );
+      }
+    }
+  };
 
   return (
     <div className="">
@@ -109,7 +123,13 @@ export default function Explore() {
             "https://api.maptiler.com/maps/streets/style.json?key=" +
             ENV.MAPTILER_KEY
           }
+          interactiveLayerIds={[
+            "clusters",
+            "cluster-count",
+            "unclustered-point",
+          ]}
           attributionControl={true}
+          onClick={onMapClick}
           onLoad={(e) => {
             const map = e.target;
             map.loadImage("/marker.png", (error, image) => {
