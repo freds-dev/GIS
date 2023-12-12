@@ -1,20 +1,23 @@
 /* eslint-disable react/jsx-no-target-blank */
-import { Link, useNavigation, useSearchParams } from "@remix-run/react";
+/* eslint-disable @typescript-eslint/ban-types */
 import {
-  Globe,
+  Form,
+  Link,
+  useNavigation,
+  useSearchParams,
+  useLoaderData,
+} from "@remix-run/react";
+import type { loader } from "~/routes/explore";
+import { useEffect, useRef, useState } from "react";
+import {
   LogIn,
-  Puzzle,
+  LogOut,
   Menu as MenuIcon,
   HelpCircle,
-  Mail,
   Fingerprint,
-  FileLock2,
-  Coins,
-  Users2,
-  ExternalLink,
+  User2,
+  Gauge,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,8 +26,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "app/components/ui/dropdown-menu";
-import { Dialog, DialogContent, DialogTrigger } from "~/components/ui/dialog";
+} from "~/components/ui/dropdown-menu";
+import { useToast } from "~/components/ui/use-toast";
 
 export function useFirstRender() {
   const firstRender = useRef(true);
@@ -38,9 +41,48 @@ export function useFirstRender() {
 
 export default function Menu() {
   const [searchParams] = useSearchParams();
+  const redirectTo =
+    searchParams.size > 0 ? "/explore?" + searchParams.toString() : "/explore";
+  const data = useLoaderData<typeof loader>();
   const [open, setOpen] = useState(false);
+  const { toast } = useToast();
   const navigation = useNavigation();
-  //   const isLoggingOut = Boolean(navigation.state === "submitting");
+  const isLoggingOut = Boolean(navigation.state === "submitting");
+  const [timeToToast, setTimeToToast] = useState<Boolean>(false);
+
+  const firstRender = useFirstRender();
+
+  useEffect(() => {
+    if (!firstRender && !timeToToast) {
+      setTimeToToast(true);
+    } else if (!firstRender && timeToToast) {
+      if (data.user === null) {
+        toast({
+          description: "logout successful",
+        });
+      }
+      if (data.user !== null) {
+        const creationDate = Date.parse(data.user.createdAt);
+        const now = Date.now();
+        const diff = now - creationDate;
+        if (diff < 10000) {
+          toast({
+            description: "login successful",
+          });
+          setTimeout(() => {
+            toast({
+              description: "login successful",
+            });
+          }, 100);
+        } else {
+          toast({
+            description: "login successful",
+          });
+        }
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data.user, toast, firstRender]);
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
@@ -50,7 +92,11 @@ export default function Menu() {
             type="button"
             className="h-10 w-10 rounded-full border border-gray-100 bg-white text-center text-black hover:bg-gray-100"
           >
-            <MenuIcon className="mx-auto h-6 w-6" />
+            {data.user === null ? (
+              <MenuIcon className="mx-auto h-6 w-6" />
+            ) : (
+              <User2 className="mx-auto h-6 w-6" />
+            )}
           </button>
         </div>
       </DropdownMenuTrigger>
@@ -64,90 +110,80 @@ export default function Menu() {
             navigation.state === "loading" ? "pointer-events-none" : ""
           }
         >
-          <DropdownMenuLabel className="font-normal">
-            <div className="flex flex-col space-y-1">
-              <p className="text-sm font-medium leading-none">Title</p>
-              <p className="text-xs leading-none text-muted-foreground">
-                Subtitle
-              </p>
-            </div>
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-
+          {data.user === null ? null : (
+            <>
+              <DropdownMenuLabel className="font-normal">
+                <div className="flex flex-col space-y-1">
+                  <p className="text-sm font-medium leading-none">
+                    Max Mustermann
+                    {/* {data.user.name} */}
+                  </p>
+                  <p className="text-xs leading-none text-muted-foreground">
+                    {data.user.email}
+                  </p>
+                </div>
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuSeparator />
+            </>
+          )}
           <DropdownMenuGroup>
-            <Link to="https://docs.sensebox.de/" target="_blank">
-              <DropdownMenuItem>
-                <Puzzle className="mr-2 h-5 w-5" />
-                tutorial{" "}
-                <ExternalLink className="ml-auto h-4 w-4 text-gray-300" />
-              </DropdownMenuItem>
-            </Link>
-
-            <Link to="https://docs.opensensemap.org/" target="_blank">
-              <DropdownMenuItem>
-                <Globe className="mr-2 h-5 w-5" />
-                api <ExternalLink className="ml-auto h-4 w-4 text-gray-300" />
-              </DropdownMenuItem>
-            </Link>
+            <DropdownMenuItem>
+              <Link to={"/dashboard"} className="flex">
+                <Gauge className="mr-2 h-5 w-5" />
+                <span>Dashboard</span>
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link to={"/faq"} className="flex">
+                <HelpCircle className="mr-2 h-5 w-5" />
+                <span>FAQ</span>
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link to={"/imprint"} className="flex">
+                <Fingerprint className="mr-2 h-5 w-5" />
+                <span>Imprint</span>
+              </Link>
+            </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem>
-              <HelpCircle className="mr-2 h-5 w-5" />
-              fac{" "}
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Mail className="mr-2 h-5 w-5" />
-              cióntact{" "}
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Fingerprint className="mr-2 h-5 w-5" />
-              imprint{" "}
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <FileLock2 className="mr-2 h-5 w-5" />
-              data protection{" "}
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator />
-
-          <DropdownMenuGroup>
-            <Dialog>
-              <DialogTrigger asChild>
-                <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
-                  <Coins className="mr-2 inline h-5 w-5" />
-                  donate{" "}
-                </DropdownMenuItem>
-              </DialogTrigger>
-              <DialogContent
-                className={"max-h-screen overflow-y-scroll !max-w-[60%]"}
+            {data.user === null ? (
+              <Link
+                to={{
+                  pathname: "/login",
+                  search: searchParams.toString(),
+                }}
+                onClick={() => setOpen(false)}
               >
-                {/* <Donate /> */}
-                <div className="grid grid-cols-2"></div>
-              </DialogContent>
-            </Dialog>
-
-            <DropdownMenuItem>
-              <Users2 className="mr-2 h-5 w-5" />
-              <span>dfklgjdg</span>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-
-          <DropdownMenuSeparator />
-
-          <DropdownMenuGroup>
-            <Link
-              to={{
-                pathname: "login",
-                search: searchParams.toString(),
-              }}
-              onClick={() => setOpen(false)}
-            >
-              <button className="relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent focus:bg-accent focus:text-accent-foreground">
-                <LogIn className="mr-2 h-5 w-5" />
-                <span className="text-green-100">login</span>
-              </button>
-            </Link>
+                <button className="relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent focus:bg-accent focus:text-accent-foreground">
+                  <LogIn className="mr-2 h-5 w-5" />
+                  <span className="text-green-600">Login</span>
+                </button>
+              </Link>
+            ) : (
+              <Form
+                action="/logout"
+                method="post"
+                onSubmit={() => {
+                  setOpen(false);
+                  // toast({
+                  //   description: "Logging out ...",
+                  // });
+                }}
+              >
+                <input type="hidden" name="redirectTo" value={redirectTo} />
+                <button
+                  type="submit"
+                  className="relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent focus:bg-accent focus:text-accent-foreground"
+                  disabled={isLoggingOut}
+                >
+                  <LogOut className="mr-2 h-5 w-5" />
+                  <span className="text-red-500">Logout</span>
+                </button>
+              </Form>
+            )}
           </DropdownMenuGroup>
         </div>
       </DropdownMenuContent>
