@@ -3,16 +3,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData, useNavigation } from "@remix-run/react";
-import { ChevronUp, Minus, X } from "lucide-react";
+import { Check, ChevronUp, Info, Minus, X } from "lucide-react";
 import { useRef, useState } from "react";
 import Draggable, { DraggableData } from "react-draggable";
 import { typedjson } from "remix-typedjson";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "~/components/ui/accordion";
+import { Button } from "~/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
@@ -79,133 +74,54 @@ export default function ExplorePlaygroundId() {
                 </div>
               </div>
               <div className="no-scrollbar relative flex-1 overflow-y-scroll">
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="w-full"
-                  defaultValue="item-1"
-                >
-                  <AccordionItem value="item-1" className="sticky top-0 z-10">
-                    <AccordionTrigger className="font-bold dark:dark:text-zinc-100">
-                      Image
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="flex w-full items-center justify-center p-4 opacity-100">
-                        <img
-                          className="rounded-lg"
-                          alt="playground_image"
-                          src={"/playground_sketch.png"}
-                        ></img>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="w-full"
-                  defaultValue={data.playground.description ? "item-1" : ""}
-                >
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger className="font-bold dark:dark:text-zinc-100">
-                      Description
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      {/* use playground description */}
-                      {data.playground.description}
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="w-full"
-                  defaultValue={"item-1"}
-                >
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger className="font-bold dark:dark:text-zinc-100">
-                      Size
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div>{data.playground.size}</div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="w-full"
-                  defaultValue={"item-1"}
-                >
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger className="font-bold dark:dark:text-zinc-100">
-                      Type
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div>{data.playground.type}</div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="w-full"
-                  defaultValue={"item-1"}
-                >
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger className="font-bold dark:dark:text-zinc-100">
-                      Area
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div>{data.playground.area}</div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="w-full"
-                  defaultValue={"item-1"}
-                >
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger className="font-bold dark:dark:text-zinc-100">
-                      Ball
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div>{data.playground.ball ? "Yes" : "No"}</div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="w-full"
-                  defaultValue={"item-1"}
-                >
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger className="font-bold dark:dark:text-zinc-100">
-                      Skater
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div>{data.playground.skater ? "Yes" : "No"}</div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="w-full"
-                  defaultValue={"item-1"}
-                >
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger className="font-bold dark:dark:text-zinc-100">
-                      Streetball
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div>{data.playground.streetball ? "Yes" : "No"}</div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+                <div className="flex w-full items-center justify-center p-4 opacity-100">
+                  <img
+                    className="rounded-lg"
+                    alt="playground_image"
+                    src={"/playground_stock.webp"}
+                  ></img>
+                </div>
+                <div className="flex flex-row justify-between items-center p-4">
+                  <div className="flex flex-col items-center justify-center">
+                    <p>Soccer</p>
+                    {data.playground.ball ? <Check /> : <X />}
+                  </div>
+                  <div className="flex flex-col items-center justify-center">
+                    <p>Streetball</p>
+                    {data.playground.streetball ? <Check /> : <X />}
+                  </div>
+                  <div className="flex flex-col items-center justify-center">
+                    <p>Skater</p>
+                    {data.playground.skater ? <Check /> : <X />}
+                  </div>
+                </div>
+                <div className="p-4">Size: {data.playground.size}</div>
+                <div className="">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button variant="ghost">
+                          Area
+                          <Info className="ml-2 h-4 w-4" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>
+                          {
+                            "A = Spielplatz für alle Altersklassen mitzentraler Versorgungsfunktion"
+                          }
+                          <br />
+                          {
+                            "B/C = Spielplatz für Kleinkinder sowie schulpfl. Kinder und Jugendliche zur Versorgung eines Wohnbereiches"
+                          }
+                          <br />
+                          {"C = Spielplatz für Kleinkinder"}
+                        </p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>{" "}
+                  {data.playground.area}
+                </div>
               </div>
             </div>
             <div className="mx-1">
