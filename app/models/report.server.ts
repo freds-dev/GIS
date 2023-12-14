@@ -19,7 +19,33 @@ export function getReportById(id: Report["id"]) {
 export function getReportListItems({ userId }: { userId: User["id"] }) {
   return prisma.report.findMany({
     where: { userId },
-    select: { id: true, title: true, status: true, createdAt: true },
+    select: {
+      id: true,
+      title: true,
+      status: true,
+      description: true,
+      createdAt: true,
+      user: {
+        select: {
+          email: true,
+        },
+      },
+      playground: {
+        select: {
+          name: true,
+          name2: true,
+          size: true,
+          type: true,
+          description: true,
+          area: true,
+          ball: true,
+          skater: true,
+          streetball: true,
+          latitude: true,
+          longitude: true,
+        },
+      },
+    },
     orderBy: { updatedAt: "desc" },
   });
 }
