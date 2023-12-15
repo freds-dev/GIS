@@ -40,6 +40,12 @@ export default function ExplorePlaygroundId() {
     setOffsetPositionY(data.y);
   }
 
+  const minCircleSize = 10; // Adjust this value as needed
+  const circleHeight = Math.max(
+    minCircleSize,
+    Math.floor((data.playground.size / 8000) * 100),
+  ).toString();
+
   return (
     <>
       {open ? (
@@ -95,8 +101,37 @@ export default function ExplorePlaygroundId() {
                     {data.playground.skater ? <Check /> : <X />}
                   </div>
                 </div>
-                <div className="p-4">Size: {data.playground.size}</div>
-                <div className="">
+                <div className="p-4 flex items-center justify-around">
+                  <div className="relative flex items-center justify-center">
+                    <TooltipProvider delayDuration={400}>
+                      <Tooltip>
+                        <TooltipTrigger>
+                          <div className="w-[100px] h-[100px] bg-blue-100 rounded-full relative z-0"></div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>
+                            Max size: 8000m<sup>2</sup>
+                          </p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                    <TooltipProvider delayDuration={400}>
+                      <Tooltip>
+                        <TooltipTrigger>
+                          <div
+                            className={`bg-blue-600 rounded-full h-[${circleHeight}px] w-[${circleHeight}px] absolute bottom-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-1`}
+                          ></div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>
+                            {"Playground size: " + data.playground.size}m
+                            <sup>2</sup>
+                          </p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </div>
+                <div className="flex items-center justify-center">
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
@@ -122,6 +157,8 @@ export default function ExplorePlaygroundId() {
                   </TooltipProvider>{" "}
                   {data.playground.area}
                 </div>
+                </div>
+
               </div>
             </div>
             <div className="mx-1">
