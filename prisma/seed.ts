@@ -14,12 +14,14 @@ function printProgress(text: string) {
 
 async function seed() {
   const email = "rachel@remix.run";
+  const adminUserEmail = "admin@remix.run";
 
   // cleanup the existing database (if any)
   await prisma.user.deleteMany({}).catch(() => {});
   await prisma.playground.deleteMany({}).catch(() => {});
 
   const hashedPassword = await bcrypt.hash("racheliscool", 10);
+  const adminHashedPassword = await bcrypt.hash("adminiscool", 10);
 
   const user = await prisma.user.create({
     data: {
@@ -27,6 +29,18 @@ async function seed() {
       password: {
         create: {
           hash: hashedPassword,
+        },
+      },
+    },
+  });
+
+  const adminUser = await prisma.user.create({
+    data: {
+      email: adminUserEmail,
+      role: "ADMIN", // Set the role to 'ADMIN'
+      password: {
+        create: {
+          hash: adminHashedPassword,
         },
       },
     },
@@ -53,6 +67,7 @@ async function seed() {
   }
 
   console.log("User created.", user);
+  console.log("Admin created.", adminUser);
 
   const playgrounds = await csvtojson({
     delimiter: ";",

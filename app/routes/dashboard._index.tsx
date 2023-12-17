@@ -86,13 +86,13 @@ export default function DashboardPage() {
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-xl border bg-card text-card-foreground shadow">
               <div className="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
-                <h3 className="tracking-tight text-sm font-medium">
+                <h3 className="tracking-tight text-sm font-medium" id="playvisible">
                   Playgrounds
                 </h3>
                 <LandPlot />
               </div>
               <div className="p-6 pt-0">
-                <motion.div className="text-2xl font-bold">
+                <motion.div className="text-2xl font-bold" id="playamount">
                   {amountPlaygrounds}
                 </motion.div>
                 <p className="text-xs text-muted-foreground">
@@ -102,7 +102,7 @@ export default function DashboardPage() {
             </div>
             <div className="rounded-xl border bg-card text-card-foreground shadow">
               <div className="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
-                <h3 className="tracking-tight text-sm font-medium">Users</h3>
+                <h3 className="tracking-tight text-sm font-medium" id="users">Users</h3>
                 <Users />
               </div>
               <div className="p-6 pt-0">
