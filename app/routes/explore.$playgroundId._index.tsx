@@ -119,7 +119,11 @@ export default function ExplorePlaygroundId() {
                       <Tooltip>
                         <TooltipTrigger>
                           <div
-                            className={`bg-blue-600 rounded-full h-[${circleHeight}px] w-[${circleHeight}px] absolute bottom-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-1`}
+                            style={{
+                              height: `${circleHeight}px`,
+                              width: `${circleHeight}px`,
+                            }}
+                            className={`bg-blue-600 rounded-full h-[29px] w-[29px] absolute bottom-0 left-1/2 transform -translate-x-1/2 z-1`}
                           ></div>
                         </TooltipTrigger>
                         <TooltipContent>
@@ -131,34 +135,33 @@ export default function ExplorePlaygroundId() {
                       </Tooltip>
                     </TooltipProvider>
                   </div>
-                <div className="flex items-center justify-center">
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Button variant="ghost">
-                          Area
-                          <Info className="ml-2 h-4 w-4" />
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>
-                          {
-                            "A = Spielplatz für alle Altersklassen mitzentraler Versorgungsfunktion"
-                          }
-                          <br />
-                          {
-                            "B/C = Spielplatz für Kleinkinder sowie schulpfl. Kinder und Jugendliche zur Versorgung eines Wohnbereiches"
-                          }
-                          <br />
-                          {"C = Spielplatz für Kleinkinder"}
-                        </p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>{" "}
-                  {data.playground.area}
+                  <div className="flex items-center justify-center">
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button variant="ghost">
+                            Area
+                            <Info className="ml-2 h-4 w-4" />
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>
+                            {
+                              "A = Spielplatz für alle Altersklassen mitzentraler Versorgungsfunktion"
+                            }
+                            <br />
+                            {
+                              "B/C = Spielplatz für Kleinkinder sowie schulpfl. Kinder und Jugendliche zur Versorgung eines Wohnbereiches"
+                            }
+                            <br />
+                            {"C = Spielplatz für Kleinkinder"}
+                          </p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>{" "}
+                    {data.playground.area}
+                  </div>
                 </div>
-                </div>
-
               </div>
             </div>
             <div className="mx-1">
