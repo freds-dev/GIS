@@ -1,13 +1,12 @@
+/* eslint-disable @typescript-eslint/consistent-indexed-object-style */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Outlet, useLoaderData, useNavigate } from "@remix-run/react";
 import {
   GeolocateControl,
-  Layer,
-  LayerProps,
   MapLayerMouseEvent,
   MapProvider,
   NavigationControl,
   Map as ReactMap,
-  Source,
 } from "react-map-gl/maplibre";
 
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -19,6 +18,18 @@ import {
 import { LoaderFunctionArgs } from "@remix-run/node";
 import { getFilteredDevices } from "~/utils/utils";
 import { getUser } from "~/session.server";
+import type Supercluster from "supercluster";
+import ClusterLayer from "~/components/map/layers/cluster-layer";
+
+export type PlaygroundClusterProperties =
+  | Supercluster.PointFeature<any>
+  | Supercluster.PointFeature<
+      Supercluster.ClusterProperties & {
+        categories: {
+          [x: number]: number;
+        };
+      }
+    >;
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const playgrounds = await getAllPlaygroundsAsGeoJSON();
@@ -39,56 +50,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
   };
 }
 
-export const clusterLayer: LayerProps = {
-  id: "clusters",
-  type: "circle",
-  source: "playgrounds",
-  filter: ["has", "point_count"],
-  paint: {
-    "circle-color": [
-      "step",
-      ["get", "point_count"],
-      "#51bbd6",
-      100,
-      "#f1f075",
-      750,
-      "#f28cb1",
-    ],
-    "circle-radius": ["step", ["get", "point_count"], 20, 100, 30, 750, 40],
-  },
-};
-
-export const clusterCountLayer: LayerProps = {
-  id: "cluster-count",
-  type: "symbol",
-  source: "playgrounds",
-  filter: ["has", "point_count"],
-  layout: {
-    "text-field": "{point_count_abbreviated}",
-    "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
-    "text-size": 12,
-  },
-};
-
-export const unclusteredPointLayer: LayerProps = {
-  id: "unclustered-point",
-  type: "symbol", // Change the type to 'symbol'
-  source: "earthquakes",
-  filter: ["!", ["has", "point_count"]],
-  layout: {
-    "icon-image": "marker", // Specify the icon image
-    "icon-size": 1, // Adjust the size of the icon
-    "icon-anchor": "bottom", // Adjust the anchor point of the icon
-    "text-field": "{title}", // If you have a title property in your data, you can display it as text
-    "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
-    "text-offset": [0, 0.6], // Adjust the text offset
-    "text-anchor": "top", // Adjust the text anchor point
-  },
-  paint: {
-    "icon-color": "#ffffff", // Set the icon color to white
-  },
-};
-
 export default function Explore() {
   const data = useLoaderData<typeof loader>();
   const navigate = useNavigate();
@@ -98,9 +59,7 @@ export default function Explore() {
       const feature = e.features[0];
 
       if (feature.layer.id === "unclustered-point") {
-        navigate(
-          `/explore/${feature.properties?.id}`,
-        );
+        navigate(`/explore/${feature.properties?.id}`);
       }
     }
   };
@@ -127,36 +86,15 @@ export default function Explore() {
             "https://api.maptiler.com/maps/streets/style.json?key=" +
             ENV.MAPTILER_KEY
           }
-          interactiveLayerIds={[
-            "clusters",
-            "cluster-count",
-            "unclustered-point",
-          ]}
+          // interactiveLayerIds={[
+          //   "clusters",
+          //   "cluster-count",
+          //   "unclustered-point",
+          // ]}
           attributionControl={true}
           onClick={onMapClick}
-          onLoad={(e) => {
-            const map = e.target;
-            map.loadImage("/marker.png", (error, image) => {
-              if (error) throw error;
-              // Add the image to the map style.
-              if (image) {
-                map.addImage("marker", image);
-              }
-            });
-          }}
         >
-          <Source
-            id="playgrounds"
-            type="geojson"
-            data={data.filteredPlaygrounds}
-            cluster={true}
-            clusterMaxZoom={14}
-            clusterRadius={50}
-          >
-            <Layer {...clusterLayer} />
-            <Layer {...clusterCountLayer} />
-            <Layer {...unclusteredPointLayer} />
-          </Source>
+          <ClusterLayer playgrounds={data.playgrounds} />
           <NavigationControl position="bottom-right" showCompass={false} />
           <GeolocateControl position="bottom-right" />
           <Outlet />
