@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useSearchParams, useLoaderData } from "@remix-run/react";
 import { Dribbble, X } from "lucide-react";
@@ -10,6 +11,14 @@ import { Checkbox } from "./ui/checkbox";
 
 export default function FilterOptions() {
   const data = useLoaderData<typeof loader>();
+
+  //get max size of all playgrounds where size is a string of each data.plainPOlaygrounds array object
+  const maxSize = Math.max(
+    ...data.filteredPlaygrounds.features.map(
+      (playground: any) => playground.properties.size,
+    ),
+  );
+  console.log("🚀 ~ file: filter-options.tsx:21 ~ FilterOptions ~ maxSize:", maxSize)
   //* searchParams hook
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -39,12 +48,12 @@ export default function FilterOptions() {
       <div className="space-y-2">
         <div className="space-y-[2px]">
           <Label className="text-base">
-            Minimum size in m<sup>2</sup>: {sizeVal}
+            Minimum area in m<sup>2</sup>: {sizeVal}
           </Label>
           &nbsp;
           <Slider
             defaultValue={[parseInt(sizeVal ?? "0")]}
-            max={1000}
+            max={6100}
             step={100}
             onValueChange={(value) => {
               if (value[0] === 0) {
