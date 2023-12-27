@@ -33,6 +33,24 @@ function getColor(status: string) {
 export default function Plot(props: PlotProps) {
   const { data } = props;
 
+  // Custom date comparison function
+  const compareDates = (a: any, b: any) => {
+    const dateA = new Date(
+      `${Number(a.date.slice(6))}-${Number(a.date.slice(3, 5))}-${Number(
+        a.date.slice(0, 2),
+      )}`,
+    );
+    const dateB = new Date(
+      `${Number(b.date.slice(6))}-${Number(b.date.slice(3, 5))}-${Number(
+        b.date.slice(0, 2),
+      )}`,
+    );
+    return dateA.getTime() - dateB.getTime();
+  };
+
+  // Sort the array using the custom comparison function
+  data.sort(compareDates);
+
   const uniqueStatuses = Array.from(
     new Set(data.flatMap((entry) => Object.keys(entry.counts))),
   );

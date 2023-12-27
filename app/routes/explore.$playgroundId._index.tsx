@@ -2,7 +2,13 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { LoaderFunctionArgs } from "@remix-run/node";
-import { Link, useLoaderData, useNavigation } from "@remix-run/react";
+import {
+  Link,
+  useLoaderData,
+  useNavigate,
+  useNavigation,
+  useSearchParams,
+} from "@remix-run/react";
 import { Check, ChevronUp, Info, Minus, Siren, X } from "lucide-react";
 import { useRef, useState } from "react";
 import Draggable, { DraggableData } from "react-draggable";
@@ -34,6 +40,12 @@ export default function ExplorePlaygroundId() {
   const nodeRef = useRef(null);
   const [offsetPositionX, setOffsetPositionX] = useState(0);
   const [offsetPositionY, setOffsetPositionY] = useState(0);
+  const [searchParams] = useSearchParams();
+
+  const navigate = useNavigate();
+  const routeChange = (newPath: string) => {
+    navigate({ pathname: newPath, search: searchParams.toString() });
+  };
 
   function handleDrag(_e: any, data: DraggableData) {
     setOffsetPositionX(data.x);
@@ -41,9 +53,10 @@ export default function ExplorePlaygroundId() {
   }
 
   const minCircleSize = 10; // Adjust this value as needed
-  const circleHeight = Math.max(
+  // catch the suedpark size (too big for the circle)
+  const circleHeight = data.playground.size > 6100 ? "100" : Math.max(
     minCircleSize,
-    Math.floor((data.playground.size / 8000) * 100),
+    Math.floor((data.playground.size / 6100) * 100),
   ).toString();
 
   return (
@@ -110,7 +123,7 @@ export default function ExplorePlaygroundId() {
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>
-                            Max size: 8000m<sup>2</sup>
+                            Max size: 15000m<sup>2</sup>
                           </p>
                         </TooltipContent>
                       </Tooltip>
@@ -135,26 +148,26 @@ export default function ExplorePlaygroundId() {
                       </Tooltip>
                     </TooltipProvider>
                   </div>
-                  <div className="flex items-center justify-center">
+                  <div className="flex flex-col items-center justify-center">
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <Button variant="ghost">
-                            Area
+                            Age group area
                             <Info className="ml-2 h-4 w-4" />
                           </Button>
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>
                             {
-                              "A = Spielplatz für alle Altersklassen mitzentraler Versorgungsfunktion"
+                              "A = Playground for all age groups with central supply function"
                             }
                             <br />
                             {
-                              "B/C = Spielplatz für Kleinkinder sowie schulpfl. Kinder und Jugendliche zur Versorgung eines Wohnbereiches"
+                              "B/C = Playground for toddlers and school-age children and young people in a residential area"
                             }
                             <br />
-                            {"C = Spielplatz für Kleinkinder"}
+                            {"C = Playground for toddlers"}
                           </p>
                         </TooltipContent>
                       </Tooltip>
@@ -168,7 +181,7 @@ export default function ExplorePlaygroundId() {
               <div className="flex flex-col items-center gap-2">
                 <div
                   // make the map snap to the initial position and change route to /explore
-                  // onClick={() => routeChange("/explore")}
+                  onClick={() => routeChange("/explore")}
                   className="shadow-zinc-800/5 cursor-pointer rounded-xl border border-gray-100 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg hover:brightness-90 dark:bg-zinc-800 dark:text-zinc-200 dark:opacity-90"
                 >
                   <X />
