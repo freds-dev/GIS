@@ -153,7 +153,7 @@ export default function ExplorePlaygroundId() {
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <Button variant="ghost">
-                            Age group area
+                            Age group
                             <Info className="ml-2 h-4 w-4" />
                           </Button>
                         </TooltipTrigger>
