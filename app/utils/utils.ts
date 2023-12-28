@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { type ClassValue, clsx } from "clsx";
+import { Point } from "geojson";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -33,8 +34,7 @@ export function getFilteredDevices(
             parseInt(playground.properties.size.toLowerCase())) &&
         (!filterParams.get("streetball") ||
           playground.properties.streetball === true) &&
-        (!filterParams.get("skate") ||
-          playground.properties.skater === true) &&
+        (!filterParams.get("skate") || playground.properties.skater === true) &&
         (!filterParams.get("ball") || playground.properties.ball === true)
       );
     });
@@ -42,12 +42,12 @@ export function getFilteredDevices(
     return {
       type: "FeatureCollection",
       features: results,
-    };
+    } as GeoJSON.FeatureCollection<Point>;
   } else {
     // return all devices
     return {
       type: "FeatureCollection",
       features: playgrounds.features,
-    };
+    } as GeoJSON.FeatureCollection<Point>;
   }
 }

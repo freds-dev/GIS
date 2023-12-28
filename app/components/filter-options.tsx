@@ -13,12 +13,11 @@ export default function FilterOptions() {
   const data = useLoaderData<typeof loader>();
 
   //get max size of all playgrounds where size is a string of each data.plainPOlaygrounds array object
-  const maxSize = Math.max(
-    ...data.filteredPlaygrounds.features.map(
-      (playground: any) => playground.properties.size,
-    ),
-  );
-  console.log("🚀 ~ file: filter-options.tsx:21 ~ FilterOptions ~ maxSize:", maxSize)
+  // const maxSize = Math.max(
+  //   ...data.filteredPlaygrounds.features.map(
+  //     (playground: any) => playground.properties.size,
+  //   ),
+  // );
   //* searchParams hook
   const [searchParams, setSearchParams] = useSearchParams();
 

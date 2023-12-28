@@ -94,7 +94,7 @@ export default function Explore() {
           attributionControl={true}
           onClick={onMapClick}
         >
-          <ClusterLayer playgrounds={data.playgrounds} />
+          <ClusterLayer playgrounds={data.filteredPlaygrounds} />
           <NavigationControl position="bottom-right" showCompass={false} />
           <GeolocateControl position="bottom-right" />
           <Outlet />
