@@ -58,7 +58,7 @@ export default function Plot(props: PlotProps) {
   const legendData = uniqueStatuses.map((status) => ({ name: status }));
 
   return (
-    <VictoryChart>
+    <VictoryChart domainPadding={{ x: 20 }}>
       {/* <VictoryLegend
         x={120}
         y={20}
@@ -67,10 +67,7 @@ export default function Plot(props: PlotProps) {
         gutter={20}
         data={legendData}
       /> */}
-      <VictoryStack
-        domainPadding={{ x: 20, y: 40 }}
-        containerComponent={<VictoryContainer responsive={true} />}
-      >
+      <VictoryStack containerComponent={<VictoryContainer responsive={true} />}>
         {uniqueStatuses.map((status, index) => (
           <VictoryBar
             labels={({ datum }) => `${datum.y}`}
@@ -85,7 +82,6 @@ export default function Plot(props: PlotProps) {
             }}
             x="x"
             y="y"
-            barWidth={20}
             labelComponent={<VictoryTooltip />}
             animate={{
               duration: 2000,

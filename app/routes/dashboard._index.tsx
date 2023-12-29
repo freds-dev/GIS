@@ -140,7 +140,7 @@ export default function DashboardPage() {
                 New reports over the last 5 days.
               </p>
             </div>
-            <div className="p-6 pt-0 pl-2">
+            <div className="">
               <PlotComponent data={data.reportCountPerDay} />
             </div>
           </div>
