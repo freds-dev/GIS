@@ -110,7 +110,7 @@ export default function Menu() {
             navigation.state === "loading" ? "pointer-events-none" : ""
           }
         >
-          {data.user === null ? null : (
+          {!data.user ? null : (
             <>
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
