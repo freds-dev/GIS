@@ -155,6 +155,7 @@ export default function Join() {
               Already have an account?{" "}
               <Link
                 className="text-blue-500 underline"
+                id = "loginlink"
                 to={{
                   pathname: "/login",
                   search: searchParams.toString(),

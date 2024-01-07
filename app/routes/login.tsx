@@ -165,6 +165,7 @@ export default function LoginPage() {
               Don&apos;t have an account?{" "}
               <Link
                 className="text-blue-500 underline"
+                id="signuplink"
                 to={{
                   pathname: "/join",
                   search: searchParams.toString(),

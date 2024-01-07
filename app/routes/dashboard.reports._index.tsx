@@ -28,7 +28,7 @@ export default function DashboardPlaygroundsPage() {
       </Link>
 
       <hr />
-      <ReportsDataTable columns={columns} data={data.allReports} />
+      <ReportsDataTable id="reptable" columns={columns} data={data.allReports} />
     </div>
   );
 }

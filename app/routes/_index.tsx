@@ -56,10 +56,10 @@ export default function Index() {
               </div>
             ) : (
               <div className="flex w-full justify-around pb-24 lg:pb-0 fade-in">
-                <Button className="bounce-top-icons items-center justify-center rounded-md bg-purple-800 text-white">
+                <Button className="bounce-top-icons items-center justify-center rounded-md bg-purple-800 text-white" name="signupbutton">
                   <Link to="/join">Sign Up</Link>
                 </Button>
-                <Button className="bounce-top-icons items-center justify-center rounded-md bg-purple-800 text-white">
+                <Button className="bounce-top-icons items-center justify-center rounded-md bg-purple-800 text-white" name="loginbutton">
                   <Link to="/login">Log In</Link>
                 </Button>
               </div>
