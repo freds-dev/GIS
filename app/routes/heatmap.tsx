@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-leaked-render */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { Point } from "geojson";
 import { useState, useEffect } from "react";
@@ -15,11 +16,15 @@ import Header from "~/components/map/header";
 import ControlPanel from "~/components/map/heatmap/control-panel";
 import { heatmapLayer } from "~/components/map/heatmap/map-style";
 import { getAllReportsAsGeoJSON } from "~/models/report.server";
+import { getUser } from "~/session.server";
 
-export async function loader() {
+export async function loader({ request }: LoaderFunctionArgs) {
   const reports = await getAllReportsAsGeoJSON();
+  const user = await getUser(request);
+
   return {
     reports: reports,
+    user: user,
   };
 }
 

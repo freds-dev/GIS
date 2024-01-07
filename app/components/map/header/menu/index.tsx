@@ -7,7 +7,6 @@ import {
   useSearchParams,
   useLoaderData,
 } from "@remix-run/react";
-import type { loader } from "~/routes/explore";
 import { useEffect, useRef, useState } from "react";
 import {
   LogIn,
@@ -17,6 +16,8 @@ import {
   Fingerprint,
   User2,
   Gauge,
+  Compass,
+  Flame,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -28,6 +29,7 @@ import {
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 import { useToast } from "~/components/ui/use-toast";
+import { loader } from "~/routes/explore";
 
 export function useFirstRender() {
   const firstRender = useRef(true);
@@ -44,6 +46,7 @@ export default function Menu() {
   const redirectTo =
     searchParams.size > 0 ? "/explore?" + searchParams.toString() : "/explore";
   const data = useLoaderData<typeof loader>();
+  console.log("🚀 ~ file: index.tsx:49 ~ Menu ~ data:", data)
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
   const navigation = useNavigation();
@@ -129,11 +132,27 @@ export default function Menu() {
           )}
           <DropdownMenuGroup>
             <DropdownMenuItem>
-              <Link to={"/dashboard"} className="flex">
-                <Gauge className="mr-2 h-5 w-5" />
-                <span>Dashboard</span>
+              <Link to={"/explore"} className="flex">
+                <Compass className="mr-2 h-5 w-5" />
+                <span>Explore</span>
               </Link>
             </DropdownMenuItem>
+            {data.user?.role === "ADMIN" ? (
+              <>
+                <DropdownMenuItem>
+                  <Link to={"/heatmap"} className="flex">
+                    <Flame className="mr-2 h-5 w-5" />
+                    <span>Heatmap</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link to={"/dashboard"} className="flex">
+                    <Gauge className="mr-2 h-5 w-5" />
+                    <span>Dashboard</span>
+                  </Link>
+                </DropdownMenuItem>
+              </>
+            ) : null}
             <DropdownMenuItem>
               <Link to={"/faq"} className="flex">
                 <HelpCircle className="mr-2 h-5 w-5" />
