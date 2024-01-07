@@ -1,4 +1,6 @@
 import type { User, Report, Playground } from "@prisma/client";
+import { point } from "@turf/helpers";
+import { Point } from "geojson";
 
 import { prisma } from "~/db.server";
 
@@ -205,4 +207,50 @@ export async function getReportCountPerDay() {
     }));
 
   return sortedReportCount;
+}
+
+// get all reports as geojson featurecollection sortet by date
+export async function getAllReportsAsGeoJSON() {
+  const reports = await prisma.report.findMany({
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      createdAt: true,
+      user: {
+        select: {
+          email: true,
+        },
+      },
+      playground: {
+        select: {
+          name: true,
+          name2: true,
+          size: true,
+          type: true,
+          description: true,
+          area: true,
+          ball: true,
+          skater: true,
+          streetball: true,
+          latitude: true,
+          longitude: true,
+        },
+      },
+    },
+    orderBy: { createdAt: "desc" },
+  });
+  const geojson: GeoJSON.FeatureCollection<Point> = {
+    type: "FeatureCollection",
+    features: [],
+  };
+  for (const report of reports) {
+    const coordinates = [
+      parseFloat(report.playground.longitude),
+      parseFloat(report.playground.latitude),
+    ];
+    const feature = point(coordinates, report);
+    geojson.features.push(feature);
+  }
+  return geojson;
 }

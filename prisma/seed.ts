@@ -80,38 +80,69 @@ async function seed() {
       },
     });
 
-    // create a report for every 5th playground, split them between users and make createdAt random inbetween noe and 5 days ago also give them a random status (PENDING, IN_PROGRESS, DONE)
-    if (i % 5 === 0) {
-      const randomUser = await prisma.user.findFirst({
-        skip: Math.floor(Math.random() * 32),
-      });
-      const randomDate = new Date(
-        new Date().getTime() -
-          Math.floor(Math.random() * 5) * 24 * 60 * 60 * 1000,
-      );
-      const randomStatus: Status = ["PENDING", "IN_PROGRESS", "DONE"][
-        Math.floor(Math.random() * 3)
-      ] as Status;
-      await prisma.report.create({
-        data: {
-          title: "This is a report",
-          description: "This is a report description",
-          status: randomStatus,
-          user: {
-            connect: {
-              id: randomUser?.id,
-            },
+    // create a report, split them between users and make createdAt random inbetween now and 5 days ago also give them a random status (PENDING, IN_PROGRESS, DONE), make some playgrounds have no reports and 
+    const randomUser = await prisma.user.findFirst({
+      skip: Math.floor(Math.random() * 32),
+    });
+    const randomDate = new Date(
+      new Date().getTime() -
+        Math.floor(Math.random() * 15) * 24 * 60 * 60 * 1000,
+    );
+    const randomStatus: Status = ["PENDING", "IN_PROGRESS", "DONE"][
+      Math.floor(Math.random() * 3)
+    ] as Status;
+    await prisma.report.create({
+      data: {
+        title: "This is a report",
+        description: "This is a report description",
+        status: randomStatus,
+        user: {
+          connect: {
+            id: randomUser?.id,
           },
-          playground: {
-            connect: {
-              id: createdPlayground.id,
-            },
-          },
-          createdAt: randomDate,
         },
-      });
-    }
+        playground: {
+          connect: {
+            id: createdPlayground.id,
+          },
+        },
+        createdAt: randomDate,
+      },
+    });
     printProgress(`ℹ️  Imported ${i} of ${playgrounds.length} playgrounds.`);
+  }
+
+  // now add more random reports, always use the same user for that
+  for (let i = 0; i < 1000; i++) {
+    const randomPlayground = await prisma.playground.findFirst({
+      skip: Math.floor(Math.random() * 100),
+    });
+    const randomDate = new Date(
+      new Date().getTime() -
+        Math.floor(Math.random() * 15) * 24 * 60 * 60 * 1000,
+    );
+    const randomStatus: Status = ["PENDING", "IN_PROGRESS", "DONE"][
+      Math.floor(Math.random() * 3)
+    ] as Status;
+    await prisma.report.create({
+      data: {
+        title: "This is a report",
+        description: "This is a report description",
+        status: randomStatus,
+        user: {
+          connect: {
+            id: user.id,
+          },
+        },
+        playground: {
+          connect: {
+            id: randomPlayground?.id,
+          },
+        },
+        createdAt: randomDate,
+      },
+    });
+    printProgress(`ℹ️  Imported ${i} of 1000 random reports.`);
   }
 
   //line break
