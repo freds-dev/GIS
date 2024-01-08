@@ -71,9 +71,9 @@ export default function Explore() {
         <ReactMap
           id="map"
           initialViewState={{
-            longitude: 7.67,
-            latitude: 51.988,
-            zoom: 11,
+            longitude: 7.652833862291914,
+            latitude: 51.96981356501732,
+            zoom: 10,
           }}
           style={{
             width: "100%",
