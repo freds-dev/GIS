@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@fdev
+        uses: actions/checkout@feat/test-gh-actions
       - name: Update diagram
         uses: githubocto/repo-visualizer@main
         with:
