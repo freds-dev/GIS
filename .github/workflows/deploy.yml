@@ -75,7 +75,15 @@ jobs:
 
       - name: ⚡ Run vitest
         run: npm run test -- --coverage
-
+  get_data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Code Visualization
+        uses: actions/checkout@master
+      - name: Update diagram
+        uses: githubocto/repo-visualizer@main
+        with:
+          excluded_paths: "fly.toml"
   cypress:
     name: ⚫️ Cypress
     runs-on: ubuntu-latest
