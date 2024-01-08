@@ -46,7 +46,6 @@ export default function Menu() {
   const redirectTo =
     searchParams.size > 0 ? "/explore?" + searchParams.toString() : "/explore";
   const data = useLoaderData<typeof loader>();
-  console.log("🚀 ~ file: index.tsx:49 ~ Menu ~ data:", data)
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
   const navigation = useNavigation();
