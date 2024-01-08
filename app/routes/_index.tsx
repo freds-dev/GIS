@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   redirect,
   type LoaderFunction,
@@ -12,9 +13,9 @@ import { useOptionalUser } from "~/utils";
 export const meta: MetaFunction = () => [{ title: "Playgrounds Hub" }];
 
 // redirect to /explore
-export const loader: LoaderFunction = async () => {
-  return redirect("/explore");
-};
+// export const loader: LoaderFunction = async () => {
+//   return redirect("/explore");
+// };
 
 export default function Index() {
   const user = useOptionalUser();
