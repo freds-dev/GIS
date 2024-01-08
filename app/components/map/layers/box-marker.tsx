@@ -1,5 +1,5 @@
 import { Playground } from "@prisma/client";
-import { useNavigate } from "@remix-run/react";
+import { useMatches, useNavigate } from "@remix-run/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { LandPlot } from "lucide-react";
 import { useState } from "react";
@@ -13,8 +13,13 @@ interface BoxMarkerProps extends MarkerProps {
 
 export default function BoxMarker({ playground, ...props }: BoxMarkerProps) {
   const navigate = useNavigate();
+  const matches = useMatches();
   const { map: mapRef } = useMap();
   const isFullZoom = mapRef && mapRef?.getZoom() >= 14;
+
+  const isSlected = matches.some(
+    (match) => match.params.playgroundId === playground.id,
+  );
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -47,8 +52,8 @@ export default function BoxMarker({ playground, ...props }: BoxMarkerProps) {
         >
           <span
             className={cn(
-              "relative rounded-full transition-colors",
-              isFullZoom && `bg-blue-100 p-1`,
+              "relative rounded-full transition-colors p-1",
+              isSlected ? "bg-green-500" : "bg-white",
             )}
           >
             {<LandPlot className="text-black h-4 w-4" />}
@@ -56,7 +61,7 @@ export default function BoxMarker({ playground, ...props }: BoxMarkerProps) {
               <div
                 className={cn(
                   "absolute left-0 top-0 h-full w-full rounded-full opacity-50",
-                  "bg-blue-100",
+                  isSlected ? null : "bg-blue-100",
                 )}
               />
             ) : null}
