@@ -36,7 +36,7 @@ describe("smoke tests", () => {
     runAfterEach = false;
     cy.visitAndCheck('/join');
     cy.get('[id="loginlink"]').click();
-    cy.url().should('eq','http://localhost:3000/login');
+    cy.url().should('eq','http://localhost:8811/login');
   })
 
   /**
@@ -58,7 +58,7 @@ describe("smoke tests", () => {
     runAfterEach = false;
     cy.visitAndCheck('/login');
     cy.get('[id="signuplink"]').click();
-    cy.url().should('eq','http://localhost:3000/join');
+    cy.url().should('eq','http://localhost:8811/join');
   })
 
   /**
@@ -132,7 +132,7 @@ describe("smoke tests", () => {
     cy.get('[id="password"]').type("adminiscool");
     cy.get('[type="submit"]').click();
 
-    cy.url().should('eq','http://localhost:3000/dashboard');
+    cy.url().should('eq','http://localhost:8811/dashboard');
     cy.visitAndCheck("/dashboard/reports");
     cy.get('[id="reptable"]').find('tr').should('have.length', 11);
   })
