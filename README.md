@@ -16,7 +16,7 @@ Before getting started, ensure that you have the following prerequisites:
 ## Installation and Setup
 1. Install all required packages using the following command:
    `npm install`
-2. Build docker image and seed database with:
+2. Build docker image and run:
    `npm run docker`
 3. Seed database
    `npm run setup`
