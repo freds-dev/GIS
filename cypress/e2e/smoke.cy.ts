@@ -11,6 +11,7 @@ describe("smoke tests", () => {
 
   /**
    * Tests startpage, checks heading, checks login & sign up button
+   * working
    */
   it('Test 01 : startside-test', () => {
     runAfterEach = false;
@@ -22,6 +23,7 @@ describe("smoke tests", () => {
 
   /**
    * Tests sign up page
+   * working
    */
   it('Test 02 : sign up page test', () =>{
     runAfterEach = false;
@@ -33,16 +35,18 @@ describe("smoke tests", () => {
 
   /**
    * Tests link from sign up page to login page
+   * not working
    */
   it('Test 03 : link from sign up to login', () =>{
     runAfterEach = false;
     cy.visitAndCheck('/join');
     cy.get('[id="loginlink"]').click();
-    cy.url().should('eq','http://localhost:8811/login');
+    cy.url().should('eq','http://localhost:3000/login');
   })
 
   /**
    * Tests login page
+   * working
    */
   it('Test 04 : login page test', () =>{
     runAfterEach = false;
@@ -55,16 +59,18 @@ describe("smoke tests", () => {
 
   /**
    * Tests link from login page to sign up page
+   * not working
    */
   it('Test 05 : link from sign up to login', () =>{
     runAfterEach = false;
     cy.visitAndCheck('/login');
     cy.get('[id="signuplink"]').click();
-    cy.url().should('eq','http://localhost:8811/join');
+    cy.url().should('eq','http://localhost:3000/join');
   })
 
   /**
    * Tests sign up & login function
+   * working
    */
   it("Test 06 : should allow you to register and login", () => {
     runAfterEach = true;
@@ -86,6 +92,7 @@ describe("smoke tests", () => {
 
   /**
    * Tests link from login page to sign up page
+   * working
    */
   it('Test 07 : checks the report table, should be empty', () =>{
     runAfterEach = true;
@@ -95,6 +102,7 @@ describe("smoke tests", () => {
   })
   /**
    * Tests report function
+   * working
    */
   it("Test 08 : creates two reports, submits, checks if the reports are in the table", () => {
     cy.login();
@@ -127,6 +135,7 @@ describe("smoke tests", () => {
 
   /**
    * Tests admin login, checks report table
+   * not working
    */
   it('Test 09 : checks admin login, checks report table', () =>{
     runAfterEach = false;
@@ -135,13 +144,14 @@ describe("smoke tests", () => {
     cy.get('[id="password"]').type("adminiscool");
     cy.get('[type="submit"]').click();
 
-    cy.url().should('eq','http://localhost:8811/dashboard');
+    cy.url().should('eq','http://localhost:3000/dashboard');
     cy.visitAndCheck("/dashboard/reports");
     cy.get('[id="reptable"]').find('tr').should('have.length', 11);
   })
 
   /**
    * Tests admin login, checks dashboard page
+   * working
    */
   it('Test 10 : checks admin login, checks dashboard page', () =>{
     runAfterEach = false;
