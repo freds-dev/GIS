@@ -24,18 +24,18 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 782;Sp Rigaweg;Rigaweg;1719;2;2 - Wohngebietsspielplatz;B/C;;;;7.608573355679019; 51.975423805753671
 783;Sp Thomas-Morus-Schule;Thomas-Morus-Schule;517;2;2 - Wohngebietsspielplatz;B/C;;;Balltrichter;7.644870765470205; 51.974453624025131
 785;Sp Samlandufer;Samlandufer;2659;2;2 - Wohngebietsspielplatz;B/C;;;;7.65887271935918; 51.992940335892825
-786;Sp Idaschule, V�rnste Esch;Idaschule, V�rnste Esch;679;2;2 - Wohngebietsspielplatz;B/C;;;;7.672703748158869; 51.932310902235784
+786;Sp Idaschule, Voernste Esch;Idaschule, Voernste Esch;679;2;2 - Wohngebietsspielplatz;B/C;;;;7.672703748158869; 51.932310902235784
 787;Sp Sankt-Josef-Kirchplatz;Sankt-Josef-Kirchplatz;;;;;;;;7.626817033833904; 51.949437583177158
 788;Sp Albachtener Strasse;Albachtener Strasse;2430;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.524238488587376; 51.926041423465435
 789;Sp Bodelschwinghstrasse;Bodelschwinghstrasse;1012;2;2 - Wohngebietsspielplatz;B/C;;;;7.646702601981798; 51.907765160381565
 790;Sp Boelestrasse;Boelestrasse;3300;3;3 - Alle Altersklassen;A;integriert;;;7.692470616951423; 51.917036559023941
 791;Sp Lange Kuhle;Lange Kuhle;4349;3;3 - Alle Altersklassen;A;integriert;;ja;7.611748505744719; 51.884330603980032
-640;Sp Hoppengarten-S�d;Hoppengarten-S�d;2965;3;3 - Alle Altersklassen;A;;;;7.650412118939931; 51.974571139598261
+640;Sp Hoppengarten-Sued;Hoppengarten-Sued;2965;3;3 - Alle Altersklassen;A;;;;7.650412118939931; 51.974571139598261
 641;Sp Am Hornbach;Am Hornbach;2666;3;3 - Alle Altersklassen;A;integriert;ja;ja;7.717050262697682; 52.002692752809274
 642;Sp Vogelrohrsheide;Vogelrohrsheide;1995;2;2 - Wohngebietsspielplatz;B/C;integriert;;ja;7.681999211787073; 51.917252403239075
 643;Sp Kupferbrink;Kupferbrink;1077;2;2 - Wohngebietsspielplatz;B/C;;;;7.718694605670472; 51.922546816425864
 644;Sp Bentelerstrasse;Bentelerstrasse;777;2;2 - Wohngebietsspielplatz;B/C;;;;7.59259241833075; 51.973589215788898
-645;Sp H�ger;H�ger;1038;2;2 - Wohngebietsspielplatz;B/C;;;;7.562269092578188; 52.020266725311295
+645;Sp Haeger;Haeger;1038;2;2 - Wohngebietsspielplatz;B/C;;;;7.562269092578188; 52.020266725311295
 647;Sp Memmertweg-Nord;Memmertweg-Nord;1137;3;3 - Alle Altersklassen;A;;;;7.618189404774695; 51.997332943360917
 648;Sp Am Kalvarienberg;Am Kalvarienberg;816;2;2 - Wohngebietsspielplatz;B/C;;;;7.645663843572001; 51.903645645074597
 649;Sp Canisiusweg;Canisiusweg;981;2;2 - Wohngebietsspielplatz;B/C;;;;7.598613036695454; 51.940108387847083
@@ -45,9 +45,9 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 653;Sp Seppenradeweg;Seppenradeweg;719;2;2 - Wohngebietsspielplatz;B/C;;;;7.6036589779805; 51.930272375800307
 654;Sp Am Burloh;Am Burloh;750;2;2 - Wohngebietsspielplatz;B/C;;;;7.606028905270835; 51.994115850284601
 656;Sp Gievenbachtal;Gievenbachtal;1237;4;4 - Zentraler Spielplatz;A+B/C;;;;7.570418892731576; 51.971578617114858
-658;Sp Gr�ner Grund;Gr�ner Grund;2199;2;2 - Wohngebietsspielplatz;B/C;integriert;;;7.61386805306015; 51.941052852413776
+658;Sp Gruener Grund;Gruener Grund;2199;2;2 - Wohngebietsspielplatz;B/C;integriert;;;7.61386805306015; 51.941052852413776
 659;Sp Meyerbeerstrasse;Meyerbeerstrasse;1500;3;3 - Alle Altersklassen;A;;;ja;7.579905073275307; 51.926941422827682
-660;Sp Gr�ner Finger;Gr�ner Finger;233;3;3 - Alle Altersklassen;A;;ja;ja;7.570442579012815; 51.965341155654066
+660;Sp Gruener Finger;Gruener Finger;233;3;3 - Alle Altersklassen;A;;ja;ja;7.570442579012815; 51.965341155654066
 661;Sp Lindenbreie;Lindenbreie;1700;2;2 - Wohngebietsspielplatz;B/C;;;;7.567483493393469; 51.959112402181148
 664;Sp Legdenweg-West;Legdenweg-West;1489;2;2 - Wohngebietsspielplatz;B/C;;ja;ja;7.563247296617039; 51.976497772893467
 665;Sp Spichernstrasse;Spichernstrasse;2150;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.623380266063701; 51.935780511157084
@@ -58,7 +58,7 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 670;Sp Zwi-Schulmann-Weg;Zwi-Schulmann-Weg;2000;2;2 - Wohngebietsspielplatz;B/C;;;;7.679959230327217; 51.933794570950738
 671;Sp Gallenkamp;Gallenkamp;727;2;2 - Wohngebietsspielplatz;B/C;;;;7.663558633620285; 51.959234585953915
 672;Sp Herdingstrasse;Herdingstrasse;1784;2;2 - Wohngebietsspielplatz;B/C;;;;7.627725525528201; 51.945879897745279
-673;Sp Sch�rbusch;Sch�rbusch;944;2;2 - Wohngebietsspielplatz;B/C;;;;7.585977089163818; 51.929414306414564
+673;Sp Schuerbusch;Schuerbusch;944;2;2 - Wohngebietsspielplatz;B/C;;;;7.585977089163818; 51.929414306414564
 674;Sp Goldaper Strasse;Goldaper Strasse;3048;2;2 - Wohngebietsspielplatz;B/C;integriert;;;7.545407714486176; 51.952082843952169
 675;Sp Dirk-Von-Merveldt-Strasse;Dirk-Von-Merveldt-Strasse;2082;3;3 - Alle Altersklassen;A;integriert;;ja;7.72388495360215; 51.918927054643987
 676;Sp Paul-Klee-Weg;Paul-Klee-Weg;1000;2;2 - Wohngebietsspielplatz;B/C;integriert;;;7.680042523904172; 51.901186742718806
@@ -68,29 +68,29 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 794;Sp Verdistrasse;Verdistrasse;1205;2;2 - Wohngebietsspielplatz;B/C;;;;7.64593231531093; 51.911153818216754
 795;Sp Diekbree;Diekbree;700;2;2 - Wohngebietsspielplatz;B/C;;;;7.70490687754622; 51.982426942307569
 796;Sp Bockhorststrasse;Bockhorststrasse;486;2;2 - Wohngebietsspielplatz;B/C;;;;7.675245604966721; 51.90521347800879
-797;Sp Streetballfl�che Normannenweg;Streetballfl�che Normannenweg;260;B;B;B;;;ja;7.669024078493094; 51.919065892722735
+797;Sp Streetballflaeche Normannenweg;Streetballflaeche Normannenweg;260;B;B;B;;;ja;7.669024078493094; 51.919065892722735
 798;Sp Tengenkamp;Tengenkamp;2908;2;2 - Wohngebietsspielplatz;B/C;;;;7.607682000912219; 51.877262788228826
 799;Sp Birkenheide I           (Ballspielplatz);Birkenheide I           (Ballspielplatz);2534;3;3 - Alle Altersklassen;A;separat;;;7.682884715854972; 51.921765335555989
 800;Sp Heroldstrasse (Heidbusch);Heroldstrasse (Heidbusch);2700;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.57415346131706; 51.919879143904524
 804;Sp Potstiege;Potstiege;1021;2;2 - Wohngebietsspielplatz;B/C;;;;7.579681761888097; 51.964895620681112
-805;Sp �berwasserschule;�berwasserschule;800;2;2 - Wohngebietsspielplatz;B/C;;;;7.620108354276115; 51.96471983228615
+805;Sp Ueberwasserschule;Ueberwasserschule;800;2;2 - Wohngebietsspielplatz;B/C;;;;7.620108354276115; 51.96471983228615
 807;Sp Matthias-Claudius-Schule;Matthias-Claudius-Schule;329;2;2 - Wohngebietsspielplatz;B/C;;;;7.612129403523039; 51.938956129473766
 808;Sp Zumsandeplatz;Zumsandeplatz;2392;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.641613958215803; 51.959415082817912
-810;Sp An Der Meerwiese-S�d;An Der Meerwiese-S�d;;;;;;;;7.648697234239671; 51.986110081757211
+810;Sp An Der Meerwiese-Sued;An Der Meerwiese-Sued;;;;;;;;7.648697234239671; 51.986110081757211
 811;Sp Wichernstrasse;Wichernstrasse;1510;2;2 - Wohngebietsspielplatz;B/C;;;;7.624313436243672; 51.973280690114187
 812;Sp Tresckowstrasse;Tresckowstrasse;800;2;2 - Wohngebietsspielplatz;B/C;;;ja;7.595183100375764; 51.934449955099545
 813;Sp Martin-Luther-Schule;Martin-Luther-Schule;500;2;2 - Wohngebietsspielplatz;B/C;;;;7.627580598736032; 51.969705586969148
 814;Sp Hans-Bredow-Weg;Hans-Bredow-Weg;5174;3;3 - Alle Altersklassen;A;;;;7.670941731838763; 51.957520491563386
-815;Sp Heidk�ttersweg;Heidk�ttersweg;515;2;2 - Wohngebietsspielplatz;B/C;;;;7.592693406186735; 52.001507338192646
+815;Sp Heidkoettersweg;Heidkoettersweg;515;2;2 - Wohngebietsspielplatz;B/C;;;;7.592693406186735; 52.001507338192646
 816;Sp Telgenweg;Telgenweg;1628;2;2 - Wohngebietsspielplatz;B/C;;;;7.713409412357649; 52.00066673561718
 817;Sp Ossenkampstiege;Ossenkampstiege;694;2;2 - Wohngebietsspielplatz;B/C;;;;7.593027331896311; 51.935035420790804
-818;Sp Am Bl�tenhain;Am Bl�tenhain;681;2;2 - Wohngebietsspielplatz;B/C;;;;7.527424913618818; 51.922405123103459
+818;Sp Am Bluetenhain;Am Bluetenhain;681;2;2 - Wohngebietsspielplatz;B/C;;;;7.527424913618818; 51.922405123103459
 819;Sp Wierling;Wierling;1350;2;2 - Wohngebietsspielplatz;B/C;;;;7.522860341946898; 51.923291729298413
 820;Sp Wiedeiken;Wiedeiken;830;2;2 - Wohngebietsspielplatz;B/C;;;;7.611733864205985; 51.87820046719964
 824;Sp Falgerstrasse;Falgerstrasse;1600;2;2 - Wohngebietsspielplatz;B/C;integriert;;;7.63101263556857; 51.975992198822432
 825;Sp Vivaldistrasse;Vivaldistrasse;;;;;;;;7.642613188281381; 51.980296826377504
 826;Sp Arnikaweg;Arnikaweg;1560;2;2 - Wohngebietsspielplatz;B/C;;;;7.603726457972481; 51.88213250670367
-829;Sp H�nenburg-Mitte;H�nenburg-Mitte;800;2;2 - Wohngebietsspielplatz;B/C;;;;7.622480054415096; 51.908643819490933
+829;Sp Huenenburg-Mitte;Huenenburg-Mitte;800;2;2 - Wohngebietsspielplatz;B/C;;;;7.622480054415096; 51.908643819490933
 830;Sp Angelmodder Weg;Angelmodder Weg;1850;3;3 - Alle Altersklassen;A;integriert;;;7.690422869749497; 51.9279792483118
 678;Sp Middelkamp (Alt: Osthuesheide);Middelkamp (Alt: Osthuesheide);497;2;2 - Wohngebietsspielplatz;B/C;;;;7.690541228475515; 51.911406563543871
 679;Sp Fleigestrasse;Fleigestrasse;270;1;1 - Kleinkindspielplatz;C;;;;7.630784677024372; 51.906987968599985
@@ -100,7 +100,7 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 683;Sp Hohe Geest;Hohe Geest;2013;2;2 - Wohngebietsspielplatz;B/C;integriert;;;7.634778841514102; 51.915689905543864
 684;Sp Hanses-Ketteler-Strasse;Hanses-Ketteler-Strasse;2598;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.650504097032006; 51.904078706240199
 685;Sp Hoppengarten-Nord       (Ballspielplatz);Hoppengarten-Nord       (Ballspielplatz);685;4;4 - Zentraler Spielplatz;A+B/C;separat;;;7.651462541790911; 51.97788176812837
-686;Sp K�nigsberger Strasse;K�nigsberger Strasse;2894;4;4 - Zentraler Spielplatz;A+B/C;;;;7.64203501537513; 51.993169993149117
+686;Sp Koenigsberger Strasse;Koenigsberger Strasse;2894;4;4 - Zentraler Spielplatz;A+B/C;;;;7.64203501537513; 51.993169993149117
 689;Sp Langeworth;Langeworth;645;2;2 - Wohngebietsspielplatz;B/C;;;;7.590090285621762; 51.997683278086043
 690;Sp Pappelweg;Pappelweg;769;2;2 - Wohngebietsspielplatz;B/C;;;;7.655914203738619; 51.909281775312756
 691;Sp Markweg;Markweg;407;2;2 - Wohngebietsspielplatz;B/C;;;;7.65301913655516; 51.980335321369751
@@ -110,13 +110,13 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 698;Sp Coerdeplatz             (Ballspielplatz);Coerdeplatz             (Ballspielplatz);560;4;4 - Zentraler Spielplatz;A+B/C;separat;;;7.629000899406577; 51.968463791744639
 699;Sp Eichendorff-Schule;Eichendorff-Schule;1139;2;2 - Wohngebietsspielplatz;B/C;;;ja;7.696016664893906; 51.914541236207079
 700;Sp Birkenheide Ii;Birkenheide Ii;2857;3;3 - Alle Altersklassen;A;;;;7.681190829629422; 51.921530667577478
-701;Sp Martin-Niem�ller-Park;Martin-Niem�ller-Park;5100;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.616650660403598; 51.972588789782421
+701;Sp Martin-Niemoeller-Park;Martin-Niemoeller-Park;5100;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.616650660403598; 51.972588789782421
 702;Sp Stodtbrockweg           (Ballspielplatz);Stodtbrockweg           (Ballspielplatz);;;;;;;;7.534919163315341; 51.960141098375502
 703;Sp Horstmarer Landweg;Horstmarer Landweg;1225;2;2 - Wohngebietsspielplatz;B/C;integriert;;;7.597924104210342; 51.970156408178731
 704;Sp Jahnstrasse;Jahnstrasse;549;2;2 - Wohngebietsspielplatz;B/C;;;;7.613613124219793; 51.976705577980923
 705;Sp Goldbrink;Goldbrink;785;2;2 - Wohngebietsspielplatz;B/C;;;;7.722426559372509; 51.92319854027852
 706;Sp Herrenstrasse;Herrenstrasse;432;2;2 - Wohngebietsspielplatz;B/C;;;;7.731443519457565; 51.917372880795128
-707;Sp Br�ningheide;Br�ningheide;170;1;1 - Kleinkindspielplatz;C;;;;7.594306541314605; 52.000681711562272
+707;Sp Brueningheide;Brueningheide;170;1;1 - Kleinkindspielplatz;C;;;;7.594306541314605; 52.000681711562272
 708;Sp Gigasstrasse;Gigasstrasse;899;2;2 - Wohngebietsspielplatz;B/C;;;;7.62013284160702; 51.928345299979867
 709;Sp Zeppelinstrasse;Zeppelinstrasse;508;2;2 - Wohngebietsspielplatz;B/C;;;;7.631977237567994; 51.969163496919755
 710;Sp Johanne-Walhorn-Weg;Johanne-Walhorn-Weg;580;2;2 - Wohngebietsspielplatz;B/C;;;;7.639049124633099; 51.963403148606744
@@ -129,24 +129,24 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 717;Sp Theodor-Heuss-Strasse;Theodor-Heuss-Strasse;568;2;2 - Wohngebietsspielplatz;B/C;;;;7.693677319356044; 51.915521976842001
 718;Sp Bodelschwinghschule;Bodelschwinghschule;422;2;2 - Wohngebietsspielplatz;B/C;;;;7.644703349524193; 51.959729285999373
 719;Sp Gasselstiege - Nord;Gasselstiege - Nord;681;2;2 - Wohngebietsspielplatz;B/C;;;;7.609868225207057; 51.973084214210012
-720;Sp T�mmersweg;T�mmersweg;1688;3?;3 - Alle Altersklassen?;A?;;;;7.618451230803753; 52.036155135921227
+720;Sp Toemmersweg;Toemmersweg;1688;3?;3 - Alle Altersklassen?;A?;;;;7.618451230803753; 52.036155135921227
 721;Sp Lechterstrasse;Lechterstrasse;491;2;2 - Wohngebietsspielplatz;B/C;;;;7.61735566002659; 51.926461182310419
-722;Sp Am L�tkebach;Am L�tkebach;959;2;2 - Wohngebietsspielplatz;B/C;;;;7.656257651135801; 51.940645148245771
+722;Sp Am Luetkebach;Am Luetkebach;959;2;2 - Wohngebietsspielplatz;B/C;;;;7.656257651135801; 51.940645148245771
 723;Sp Margaretenschule, Brentanoweg 18;Margaretenschule, Brentanoweg 18;540;2;2 - Wohngebietsspielplatz;B/C;;;ja;7.673973020251149; 51.952404504142088
 724;Sp Zum Guten Hirten;Zum Guten Hirten;1043;2;2 - Wohngebietsspielplatz;B/C;;;;7.658687664419431; 51.963044097772624
 725;Sp Laerer Landweg;Laerer Landweg;1271;2;2 - Wohngebietsspielplatz;B/C;integriert;;ja;7.668632180760475; 51.954941813755433
 726;Sp Kranichweg;Kranichweg;660;2;2 - Wohngebietsspielplatz;B/C;;;;7.681118226815781; 51.930463994968285
 727;Sp Mergelberg-Nord;Mergelberg-Nord;4500;3;3 - Alle Altersklassen;A;;ja;ja;7.560519485982389; 51.969417802519956
-728;Sp Am K�mpken;Am K�mpken;2757;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.526091398724774; 51.920509904886963
+728;Sp Am Kaempken;Am Kaempken;2757;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.526091398724774; 51.920509904886963
 729;Sp Gustav-Freytag-/ Heinr.-Von-Kleist-Str.;Gustav-Freytag-/ Heinr.-Von-Kleist-Str.;1821;2;2 - Wohngebietsspielplatz;B/C;integriert;;;7.551272846290035; 51.992637620344468
 730;Sp Sprickmannstrasse 10;Sprickmannstrasse 10;350;1;1 - Kleinkindspielplatz;C;;;;7.596655698269426; 51.998202041667177
 731;Sp Nordmark;Nordmark;3250;3;3 - Alle Altersklassen;A;;;;7.601230791809849; 52.002786388028447
 732;Sp Gronowskistrasse;Gronowskistrasse;2456;2;2 - Wohngebietsspielplatz;B/C;;;;7.565872099534285; 51.968584256567659
 733;Sp Geistschule;Geistschule;2000;2;2 - Wohngebietsspielplatz;B/C;;;ja;7.621412975798697; 51.938768522040959
 734;Sp Helene-Weigel-Weg, Alt: Einkaufzentrum Meesenstiege;Helene-Weigel-Weg, Alt: Einkaufzentrum Meesenstiege;4460;4;4 - Zentraler Spielplatz;A+B/C;integriert;;ja;7.622705717603383; 51.902210942087102
-735;Sp K�sliner Strasse;K�sliner Strasse;1580;2;2 - Wohngebietsspielplatz;B/C;;;;7.645528550026746; 51.977256462692161
+735;Sp Koesliner Strasse;Koesliner Strasse;1580;2;2 - Wohngebietsspielplatz;B/C;;;;7.645528550026746; 51.977256462692161
 736;Sp Drensteinfurtweg;Drensteinfurtweg;1460;2;2 - Wohngebietsspielplatz;B/C;;;;7.603382340154272; 51.927941169212382
-737;Sp K�rnerstrasse;K�rnerstrasse;615;2;2 - Wohngebietsspielplatz;B/C;;;;7.61673169515026; 51.952923834082469
+737;Sp Koernerstrasse;Koernerstrasse;615;2;2 - Wohngebietsspielplatz;B/C;;;;7.61673169515026; 51.952923834082469
 738;Sp Emil-Nolde-Weg;Emil-Nolde-Weg;625;2;2 - Wohngebietsspielplatz;B/C;;;;7.677433276691096; 51.900483359250302
 739;Sp Meinertzstrasse;Meinertzstrasse;800;2;2 - Wohngebietsspielplatz;B/C;;;;7.596294211643109; 52.002314255735662
 740;Sp Fresnostrasse           (Ballspielplatz);Fresnostrasse           (Ballspielplatz);1055;3;3 - Alle Altersklassen;A;separat;;ja;7.61022796455164; 51.985456023384657
@@ -160,31 +160,31 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 750;Sp Am Tinnenbusch;Am Tinnenbusch;635;2;2 - Wohngebietsspielplatz;B/C;;;;7.530528916960129; 51.918605920607767
 751;Sp Pictoriusstrasse (Begegnungsraum);Pictoriusstrasse (Begegnungsraum);1699;2;2 - Wohngebietsspielplatz;B/C;;;;7.621016369131665; 51.925605280723744
 752;Sp Josefschule, Hermannstrasse 58;Josefschule, Hermannstrasse 58;950;2;2 - Wohngebietsspielplatz;B/C;;;Balltrichter;7.623808507583127; 51.950786646556388
-753;Sp Sch�tzenhof;Sch�tzenhof;1613;2;2 - Wohngebietsspielplatz;B/C;integriert;;ja;7.624322296917812; 51.945399793470429
-831;Sp Maximilianstrasse-S�d;Maximilianstrasse-S�d;740;2;2 - Wohngebietsspielplatz;B/C;;;;7.632876536463765; 51.97021654692157
+753;Sp Schuetzenhof;Schuetzenhof;1613;2;2 - Wohngebietsspielplatz;B/C;integriert;;ja;7.624322296917812; 51.945399793470429
+831;Sp Maximilianstrasse-Sued;Maximilianstrasse-S�d;740;2;2 - Wohngebietsspielplatz;B/C;;;;7.632876536463765; 51.97021654692157
 832;Sp Drei Eichen             (Ballspielplatz);Drei Eichen             (Ballspielplatz);800;2;2 - Wohngebietsspielplatz;B/C;separat;;;7.712761563428638; 51.994817503113872
 833;Sp Haus Angelmodde;Haus Angelmodde;915;2;2 - Wohngebietsspielplatz;B/C;;;;7.70135574563998; 51.920415504520342
-836;Sp M�hlenstrasse;M�hlenstrasse;3040;4;4 - Zentraler Spielplatz;A+B/C;;;;7.620498499827576; 51.95911584327348
+836;Sp Muehlenstrasse;Muehlenstrasse;3040;4;4 - Zentraler Spielplatz;A+B/C;;;;7.620498499827576; 51.95911584327348
 837;Sp Hegerskamp;Hegerskamp;2946;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.672341817256887; 51.948035921197466
 840;Sp Am Pastorenbusch;Am Pastorenbusch;3185;3;3 - Alle Altersklassen;A;integriert;;ja;7.558854947870858; 51.991382361460758
 841;Sp Dreifaltigkeitsschule;Dreifaltigkeitsschule;959;2;2 - Wohngebietsspielplatz;B/C;;;Balltrichter;7.615088594378264; 51.974637696817375
 842;Sp Alsenstrasse;Alsenstrasse;1505;2;2 - Wohngebietsspielplatz;B/C;;;;7.642629946098321; 51.96961923666435
-843;Sp Eichenweg S�d;Eichenweg S�d;488;2;2 - Wohngebietsspielplatz;B/C;;;;7.540277430763528; 51.949251036884981
+843;Sp Eichenweg Sued;Eichenweg Sued;488;2;2 - Wohngebietsspielplatz;B/C;;;;7.540277430763528; 51.949251036884981
 848;Sp Admiral-Spee-Strasse;Admiral-Spee-Strasse;950;2;2 - Wohngebietsspielplatz;B/C;;;;7.662145542157645; 51.967613372265696
 849;Sp Engelenschanze;Engelenschanze;140;1;1 - Kleinkindspielplatz;C;;;;7.630806836502447; 51.95742048531401
 850;Sp Rinkerodeweg;Rinkerodeweg;417;2;2 - Wohngebietsspielplatz;B/C;;;;7.604247049162259; 51.932876914989308
-851;Sp Sch�ppingenweg;Sch�ppingenweg;417;2;2 - Wohngebietsspielplatz;B/C;;;;7.577476707593776; 51.973425695083549
+851;Sp Schueppingenweg;Schueppingenweg;417;2;2 - Wohngebietsspielplatz;B/C;;;;7.577476707593776; 51.973425695083549
 852;Sp Agathastrasse;Agathastrasse;991;2;2 - Wohngebietsspielplatz;B/C;;;;7.687743839998749; 51.929612223608487
-853;Sp V�gedingplatz;V�gedingplatz;3681;4;4 - Zentraler Spielplatz;A+B/C;;;;7.551290834806832; 51.996143197460761
+853;Sp Voegedingplatz;Voegedingplatz;3681;4;4 - Zentraler Spielplatz;A+B/C;;;;7.551290834806832; 51.996143197460761
 854;Sp Am Haus Nienberge;Am Haus Nienberge;750;2;2 - Wohngebietsspielplatz;B/C;;;;7.556620968169012; 51.998833111192191
 855;Sp Max-Reger-Strasse;Max-Reger-Strasse;914;2;2 - Wohngebietsspielplatz;B/C;;;;7.640893909134845; 51.908111729001703
 856;Sp Trinitatiskirche, Strassburger Weg;Trinitatiskirche, Strassburger Weg;1160;2;2 - Wohngebietsspielplatz;B/C;;;;7.622108416858097; 51.943603267827626
-857;Sp Dauvem�hle;Dauvem�hle;1138;2;2 - Wohngebietsspielplatz;B/C;;;;7.600264198868393; 51.989409699591278
+857;Sp Dauvemuehle;Dauvemuehle;1138;2;2 - Wohngebietsspielplatz;B/C;;;;7.600264198868393; 51.989409699591278
 858;Sp Dyckburgstrasse;Dyckburgstrasse;582;2;2 - Wohngebietsspielplatz;B/C;;;;7.690867523621678; 51.995672881612926
-859;Sp K�sters K�mpken;K�sters K�mpken;785;2;2 - Wohngebietsspielplatz;B/C;;;;7.540421755734468; 51.951976239257903
+859;Sp Koesters Kaempken;Koesters Kaempken;785;2;2 - Wohngebietsspielplatz;B/C;;;;7.540421755734468; 51.951976239257903
 860;Sp Dahlienweg;Dahlienweg;656;2;2 - Wohngebietsspielplatz;B/C;;;;7.667940454838578; 51.902129044884319
 861;Sp Tannenbergstrasse;Tannenbergstrasse;963;2;2 - Wohngebietsspielplatz;B/C;integriert;;;7.628548562496127; 51.97375249055294
-862;Sp Gasselstiege - S�d;Gasselstiege - S�d;590;2;2 - Wohngebietsspielplatz;B/C;;;;7.611207270093483; 51.971194532193586
+862;Sp Gasselstiege - Sued;Gasselstiege - Sued;590;2;2 - Wohngebietsspielplatz;B/C;;;;7.611207270093483; 51.971194532193586
 863;Sp Fernholzstrasse;Fernholzstrasse;2100;4;4 - Zentraler Spielplatz;A+B/C;integriert;;ja;7.590815595256283; 51.993593400049036
 864;Sp Am Naturdenkmal;Am Naturdenkmal;1895;3;3 - Alle Altersklassen;A;;;;7.618472803344177; 51.927957329991408
 865;Sp Auf Dem Draun;Auf Dem Draun;2353;2;2 - Wohngebietsspielplatz;B/C;;;;7.593083489273975; 51.952778648447804
@@ -194,11 +194,11 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 869;Sp Im Dahl;Im Dahl;2664;3;3 - Alle Altersklassen;A;integriert;;ja;7.640311865133725; 51.913434970756867
 870;Sp Patronatsstrasse;Patronatsstrasse;550;2;2 - Wohngebietsspielplatz;B/C;;;;7.638534395109736; 51.904920654411342
 871;Sp Freiburger Weg;Freiburger Weg;668;2;2 - Wohngebietsspielplatz;B/C;;;;7.618723022395569; 51.941127850205149
-872;Sp P�tterhoek;P�tterhoek;1364;2;2 - Wohngebietsspielplatz;B/C;;;;7.6557062424528; 51.972249820241117
+872;Sp Poetterhoek;Poetterhoek;1364;2;2 - Wohngebietsspielplatz;B/C;;;;7.6557062424528; 51.972249820241117
 873;Sp Am Hof Schultmann;Am Hof Schultmann;700;2;2 - Wohngebietsspielplatz;B/C;;;;7.578168154520808; 51.928079942861963
-874;Sp S�dpark;S�dpark;15765;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.629918720249489; 51.948844525726457
+874;Sp Suedpark;Suedpark;15765;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.629918720249489; 51.948844525726457
 876;Sp Gut Insel;Gut Insel;6086;4;4 - Zentraler Spielplatz;A+B/C;integriert;;ja;7.614293261613516; 51.937633384386217
-877;Sp B�ttcherstrasse;B�ttcherstrasse;1500;2;2 - Wohngebietsspielplatz;B/C;;;;7.620277262231626; 51.905121644274921
+877;Sp Boettcherstrasse;Boettcherstrasse;1500;2;2 - Wohngebietsspielplatz;B/C;;;;7.620277262231626; 51.905121644274921
 878;Sp Wilhelmstrasse;Wilhelmstrasse;4269;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.610508855168252; 51.966952917734886
 879;Sp Josefine-Mauser-Strasse;Josefine-Mauser-Strasse;1696;2;2 - Wohngebietsspielplatz;B/C;;;;7.650551672710452; 51.990769139023826
 880;Sp Am Loddenbach           (Ballspielplatz);Am Loddenbach           (Ballspielplatz);2060;3;3 - Alle Altersklassen;A;separat;;ja;7.679923450156998; 51.935510888917783
@@ -214,7 +214,7 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 892;Sp Am Dill;Am Dill;785;2;2 - Wohngebietsspielplatz;B/C;;;;7.565457921656107; 51.930927886559211
 893;Sp Wilkinghege             (Ballspielplatz);Wilkinghege             (Ballspielplatz);1800;3;3 - Alle Altersklassen;A;;;;7.596124260184176; 51.988183025322279
 894;Sp Hoher Hainweg;Hoher Hainweg;1000;2;2 - Wohngebietsspielplatz;B/C;integriert;;;7.610635475166645; 51.928934741043918
-895;Sp R�pingstrasse;R�pingstrasse;815;2;2 - Wohngebietsspielplatz;B/C;;;;7.607253869599354; 51.938143589618157
+895;Sp Ruepingstrasse;Ruepingstrasse;815;2;2 - Wohngebietsspielplatz;B/C;;;;7.607253869599354; 51.938143589618157
 896;Sp Kappenberger Damm;Kappenberger Damm;525;2;2 - Wohngebietsspielplatz;B/C;;;;7.610147021296986; 51.938636151250485
 897;Sp Nerzweg;Nerzweg;4277;4;4 - Zentraler Spielplatz;A+B/C;integriert;ja;ja;7.641063054949025; 51.999791937188604
 898;Sp Stadtpark Wienburg;Stadtpark Wienburg;6000;3;3 - Alle Altersklassen;A;integriert;ja;;7.626692735409952; 51.979240550697106
@@ -224,7 +224,7 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 902;Sp Studtstrasse;Studtstrasse;819;2;2 - Wohngebietsspielplatz;B/C;;;;7.618288423000763; 51.968545399545924
 905;Sp Mauritz-Lindenweg;Mauritz-Lindenweg;1612;4;4 - Zentraler Spielplatz;A+B/C;;;ja;7.658347144489674; 51.960802200148763
 906;Sp Am Kanonengraben;Am Kanonengraben;1839;2;2 - Wohngebietsspielplatz;B/C;;;;7.620673094947724; 51.956268666450526
-907;Sp Aasee: Torminbr�cke;Aasee: Torminbr�cke;1900;3;3 - Alle Altersklassen;A;integriert;;;7.602529830947735; 51.951192316654975
+907;Sp Aasee: Torminbruecke;Aasee: Torminbruecke;1900;3;3 - Alle Altersklassen;A;integriert;;;7.602529830947735; 51.951192316654975
 908;Sp Middelfeld;Middelfeld;1917;2;2 - Wohngebietsspielplatz;B/C;;;;7.709323569835635; 51.989306244142583
 909;Sp Bernhard-Poether-Strasse;Bernhard-Poether-Strasse;654;2;2 - Wohngebietsspielplatz;B/C;;;;7.625654627868761; 51.908429237981558
 910;Sp Von-Holte-Strasse;Von-Holte-Strasse;645;2;2 - Wohngebietsspielplatz;B/C;;;;7.716625515245688; 51.913023921387634
@@ -235,9 +235,9 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 915;Sp Hubertistrasse;Hubertistrasse;2942;4;4 - Zentraler Spielplatz;A+B/C;integriert;;;7.650328708398482; 51.953592096259896
 917;Sp An Der Meerwiese-Mitte;An Der Meerwiese-Mitte;;;;;;;;7.650423733587914; 51.988727397321327
 920;Sp Kemperweg;Kemperweg;2200;4;4 - Zentraler Spielplatz;A+B/C;;;;7.640645727538758; 51.989522822975566
-921;Sp D�esbergweg;D�esbergweg;1700;3;3 - Alle Altersklassen;A;;;;7.609088188030244; 51.930075950260559
+921;Sp Dueesbergweg;Dueesbergweg;1700;3;3 - Alle Altersklassen;A;;;;7.609088188030244; 51.930075950260559
 922;Sp Rincklakeweg;Rincklakeweg;1082;2;2 - Wohngebietsspielplatz;B/C;;;;7.617680153108822; 51.92583582176816
-923;Sp Mergelberg-S�d;Mergelberg-S�d;3043;2;2 - Wohngebietsspielplatz;B/C;;;;7.561715180449355; 51.965702332976733
+923;Sp Mergelberg-Sued;Mergelberg-Sued;3043;2;2 - Wohngebietsspielplatz;B/C;;;;7.561715180449355; 51.965702332976733
 924;Sp Coerdeplatz;Coerdeplatz;2377;4;4 - Zentraler Spielplatz;A+B/C;;;;7.629348855094757; 51.967551057770571
 925;Sp Dunantstrasse;Dunantstrasse;1023;2;2 - Wohngebietsspielplatz;B/C;;;;7.610673862546115; 51.94606654401283
 926;Sp Willingrott;Willingrott;880;2;2 - Wohngebietsspielplatz;B/C;;;;7.714381832895813; 52.003832109093977
@@ -248,16 +248,16 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 931;Sp Kleimannstrasse;Kleimannstrasse;1660;4;4 - Zentraler Spielplatz;A+B/C;;;;7.618177747832305; 51.967411605553174
 932;Sp Hoffmann-Von-Fallersleben-Weg;Hoffmann-Von-Fallersleben-Weg;575;2;2 - Wohngebietsspielplatz;B/C;;;;7.63373257876969; 51.90178211503342
 933;Sp Franz-Marc-Weg;Franz-Marc-Weg;625;2;2 - Wohngebietsspielplatz;B/C;;;;7.672349922353158; 51.899922823861743
-934;Sp Fritz-P�tter-Strasse;Fritz-P�tter-Strasse;634;2;2 - Wohngebietsspielplatz;B/C;;;;7.627700189727629; 51.936693769425659
+934;Sp Fritz-Puetter-Strasse;Fritz-Puetter-Strasse;634;2;2 - Wohngebietsspielplatz;B/C;;;;7.627700189727629; 51.936693769425659
 935;Sp Korbmacherweg;Korbmacherweg;3268;4;4 - Zentraler Spielplatz;A+B/C;;;;7.527384809361981; 51.952524071916869
-936;Sp Martin-Niem�ller-Strasse;Martin-Niem�ller-Strasse;800;2;2 - Wohngebietsspielplatz;B/C;;;;7.602823678338004; 51.991372498494549
+936;Sp Martin-Niemoeller-Strasse;Martin-Niemoeller-Strasse;800;2;2 - Wohngebietsspielplatz;B/C;;;;7.602823678338004; 51.991372498494549
 937;Sp Am Berler Kamp;Am Berler Kamp;1433;2;2 - Wohngebietsspielplatz;B/C;;;;7.718946036945668; 51.917794875545304
 938;Sp Parkallee;Parkallee;1462;2;2 - Wohngebietsspielplatz;B/C;;;;7.680726995617543; 51.961180735723829
-939;Sp M�llmannsweg;M�llmannsweg;3000;4;4 - Zentraler Spielplatz;A+B/C;integriert;ja;ja;7.585481441877317; 51.962772287701199
+939;Sp Moellmannsweg;Moellmannsweg;3000;4;4 - Zentraler Spielplatz;A+B/C;integriert;ja;ja;7.585481441877317; 51.962772287701199
 940;Sp Nienkamp;Nienkamp;1538;2;2 - Wohngebietsspielplatz;B/C;integriert;;;7.61446723847716; 51.98440939425538
 941;Sp Winkelheide;Winkelheide;1098;2;2 - Wohngebietsspielplatz;B/C;;;;7.674948631868416; 52.028399870641046
 942;Sp Schulcampus Roxel;Schulcampus Roxel;;;;;;;;7.528403942581511; 51.954720932262923
-943;Sp H�lderlinweg;H�lderlinweg;800;2;2 - Wohngebietsspielplatz;B/C;;;;7.629089407978644; 51.900137255423125
+943;Sp Hoelderlinweg;Hoelderlinweg;800;2;2 - Wohngebietsspielplatz;B/C;;;;7.629089407978644; 51.900137255423125
 944;Sp Melchersstrasse;Melchersstrasse;2075;2;2 - Wohngebietsspielplatz;B/C;;;ja;7.616252390529032; 51.971343761469129
 945;Sp Weserstrasse;Weserstrasse;;;;;;;;7.660676936933501; 51.970508810633369
 949;Sp Am Edelbach;Am Edelbach;2111;4;4 - Zentraler Spielplatz;A+B/C;;;;7.654559522770757; 51.994032657870306
@@ -277,10 +277,10 @@ ID;Name;Name2;Groesse;Typ;Beschreibung;Bereich;Ballspielplatz;Skater;Streetball;
 965;Sp Scheibenstrasse;Scheibenstrasse;790;2;2 - Wohngebietsspielplatz;B/C;;;ja;7.626961099944843; 51.93899509970548
 966;Sp Hacklenburg;Hacklenburg;838;2;2 - Wohngebietsspielplatz;B/C;;;;7.647778065325731; 51.982791950817514
 967;Sp  Anton-Aulke-Strasse; Anton-Aulke-Strasse;;;;;;;;7.720940958309674; 51.908963323982555
-968;Sp Sentruper H�he (Theresienschule);Sentruper H�he (Theresienschule);;;;;;;;7.593929541310397; 51.955961550334848
+968;Sp Sentruper Hoehe (Theresienschule);Sentruper Hoehe (Theresienschule);;;;;;;;7.593929541310397; 51.955961550334848
 969;Sp Oststrasse;Oststrasse;2608;4;4 - Zentraler Spielplatz;A+B/C;;;;7.646693405576888; 51.9622508355855
 970;Sp Buxtrup;Buxtrup;2975;3;3 - Alle Altersklassen;A;integriert;;ja;7.71764307823379; 51.909952100863443
-971;Sp Kr�gerweg;Kr�gerweg;;;;;;;;7.655739148655347; 51.924892114560187
+971;Sp Kroegerweg;Kroegerweg;;;;;;;;7.655739148655347; 51.924892114560187
 972;Sp Vinzenzweg;Vinzenzweg;;;;;;;;7.638098477290411; 51.971733073572658
 973;Sp Rehhagen;Rehhagen;805;2;2 - Wohngebietsspielplatz;B/C;;;;7.628892545559687; 51.898966503611554
 974;Sp Alte Furt;Alte Furt;846;2;2 - Wohngebietsspielplatz;B/C;;;ja;7.606965885853413; 51.884462872517226
