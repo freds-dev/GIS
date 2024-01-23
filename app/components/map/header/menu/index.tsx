@@ -131,7 +131,7 @@ export default function Menu() {
           )}
           <DropdownMenuGroup>
             <DropdownMenuItem>
-              <Link to={"/explore"} className="flex">
+              <Link to={"/explore"} className="flex w-full">
                 <Compass className="mr-2 h-5 w-5" />
                 <span>Explore</span>
               </Link>
@@ -139,13 +139,13 @@ export default function Menu() {
             {data.user?.role === "ADMIN" ? (
               <>
                 <DropdownMenuItem>
-                  <Link to={"/heatmap"} className="flex">
+                  <Link to={"/heatmap"} className="flex w-full">
                     <Flame className="mr-2 h-5 w-5" />
                     <span>Heatmap</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link to={"/dashboard"} className="flex">
+                  <Link to={"/dashboard"} className="flex w-full">
                     <Gauge className="mr-2 h-5 w-5" />
                     <span>Dashboard</span>
                   </Link>
@@ -153,13 +153,13 @@ export default function Menu() {
               </>
             ) : null}
             <DropdownMenuItem>
-              <Link to={"/faq"} className="flex">
+              <Link to={"/faq"} className="flex w-full">
                 <HelpCircle className="mr-2 h-5 w-5" />
                 <span>FAQ</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link to={"/imprint"} className="flex">
+              <Link to={"/imprint"} className="flex w-full">
                 <Fingerprint className="mr-2 h-5 w-5" />
                 <span>Imprint</span>
               </Link>
@@ -174,6 +174,7 @@ export default function Menu() {
                   search: searchParams.toString(),
                 }}
                 onClick={() => setOpen(false)}
+                className="w-full"
               >
                 <button className="relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent focus:bg-accent focus:text-accent-foreground">
                   <LogIn className="mr-2 h-5 w-5" />
