@@ -1,11 +1,23 @@
+import { LoaderFunctionArgs } from "@remix-run/node";
+import Menu from "~/components/map/header/menu";
+import { getUser } from "~/session.server";
+
+export async function loader({ request }: LoaderFunctionArgs) {
+  const user = await getUser(request);
+
+  return {
+    user: user,
+  };
+}
+
 export default function ImprintPage() {
   return (
-    <div className="font-sans bg-gray-100 h-full">
-      <div className="bg-gray-800 text-white p-4 text-center w-full fixed top-0">
-        <h1>Impressum</h1>
+    <div className="font-sans bg-gray-100 h-screen">
+      <div className="fixed top-2 right-2 z-50 ">
+        <Menu />
       </div>
 
-      <div className="flex flex-col justify-center items-center h-full">
+      <div className="flex flex-col justify-center items-center h-full pt-8">
         <section className="max-w-2xl w-full m-5 p-5 bg-white shadow-md rounded-lg text-center">
           <h2>Company</h2>
           <p>PlaygroundsHUB</p>

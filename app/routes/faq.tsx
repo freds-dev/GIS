@@ -1,9 +1,12 @@
+import { LoaderFunctionArgs } from "@remix-run/node";
+import Menu from "~/components/map/header/menu";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "~/components/ui/accordion";
+import { getUser } from "~/session.server";
 
 // generate object that stores eacht question and answer pair
 const faq = [
@@ -35,12 +38,21 @@ const faq = [
     answer: "Of course it is GI in society",
   },
 ];
+
+export async function loader({ request }: LoaderFunctionArgs) {
+  const user = await getUser(request);
+
+  return {
+    user: user,
+  };
+}
+
 export default function FAQPage() {
   return (
     <>
       <div className="font-sans bg-gray-100 h-full">
-        <div className="bg-gray-800 text-white p-4 text-center w-full fixed top-0">
-          <h1>Frequently Asked Questions</h1>
+        <div className="fixed top-2 right-2 z-50 ">
+          <Menu />
         </div>
         <div className="flex justify-center items-center h-full">
           {/* // iterate over the faq object and render each question and answer */}
