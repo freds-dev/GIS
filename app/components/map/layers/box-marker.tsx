@@ -1,5 +1,5 @@
 import { Playground } from "@prisma/client";
-import { useMatches, useNavigate } from "@remix-run/react";
+import { useMatches, useNavigate, useSearchParams } from "@remix-run/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { LandPlot } from "lucide-react";
 import { useState } from "react";
@@ -13,6 +13,7 @@ interface BoxMarkerProps extends MarkerProps {
 
 export default function BoxMarker({ playground, ...props }: BoxMarkerProps) {
   const navigate = useNavigate();
+  const [searchParams, ] = useSearchParams();
   const matches = useMatches();
   const { map: mapRef } = useMap();
   const isFullZoom = mapRef && mapRef?.getZoom() >= 14;
@@ -45,7 +46,10 @@ export default function BoxMarker({ playground, ...props }: BoxMarkerProps) {
             isFullZoom ? "-left-4 -top-4" : "-left-[10px] -top-[10px]",
           )}
           onClick={() => {
-            navigate(`${playground.id}`);
+            navigate({
+              pathname: `${playground.id}`,
+              search: searchParams.toString(),
+            });
           }}
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
