@@ -52,6 +52,7 @@ export default function FilterOptions() {
           &nbsp;
           <Slider
             defaultValue={[parseInt(sizeVal ?? "0")]}
+            value={[parseInt(sizeVal ?? "0")]}
             max={6100}
             step={100}
             onValueChange={(value) => {
@@ -73,6 +74,7 @@ export default function FilterOptions() {
             <div>
               <Checkbox
                 defaultChecked={streetball}
+                checked={streetball}
                 onCheckedChange={(value) => {
                   if (value === false) {
                     searchParams.delete("streetball");
@@ -94,6 +96,7 @@ export default function FilterOptions() {
             <div>
               <Checkbox
                 defaultChecked={ball}
+                checked={ball}
                 onCheckedChange={(value) => {
                   if (value === false) {
                     searchParams.delete("ball");
@@ -115,6 +118,7 @@ export default function FilterOptions() {
             <div>
               <Checkbox
                 defaultChecked={skate}
+                checked={skate}
                 onCheckedChange={(value) => {
                   if (value === false) {
                     searchParams.delete("skate");
