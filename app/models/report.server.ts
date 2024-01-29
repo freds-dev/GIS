@@ -175,10 +175,7 @@ export async function getReportCountPerDay() {
 
   const reportCountPerDay = reports.reduce(
     (acc, report) => {
-      const formattedDate = report.createdAt.toLocaleDateString("en-GB", {
-        day: "numeric",
-        month: "numeric",
-      });
+      const formattedDate = report.createdAt.toISOString().split("T")[0];
       const status = report.status;
 
       // Initialize the count for the specific date and status if not present
@@ -205,6 +202,21 @@ export async function getReportCountPerDay() {
       date,
       counts,
     }));
+
+  function formatDate(inputDate: string) {
+    const date = new Date(inputDate);
+    const day = date.getDate();
+    const month = date.getMonth() + 1; // Note: months are 0-indexed, so we add 1
+    const formattedDate = `${day < 10 ? "0" : ""}${day}/${
+      month < 10 ? "0" : ""
+    }${month}`;
+    return formattedDate;
+  }
+
+  // format date key of sortedReportCount
+  sortedReportCount.forEach((item) => {
+    item.date = formatDate(item.date);
+  });
 
   return sortedReportCount;
 }
