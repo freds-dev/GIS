@@ -2,12 +2,6 @@
 
 Welcome to the documentation for the Playgrounds Hub. This guide will walk you through the setup process and provide essential information to run the application locally.
 
-## Table of Contents
-- [Prerequisites](#prerequisites)
-- [Installation and Setup](#installation-and-setup)
-- [Access the Application](#access-the-application)
-- [Additional Information](#additional-information)
-
 ## Prerequisites
 Before getting started, ensure that you have the following prerequisites:
 
