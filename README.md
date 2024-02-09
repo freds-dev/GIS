@@ -21,3 +21,12 @@ Before getting started, ensure that you have the following prerequisites:
 
 ## Access the Application
 To access the application go to `https://localhost:3000`
+
+## Default accounts
+User: 
+   email: `rachel@remix.run`
+   pw: `racheliscool`
+
+Admin:
+   email: `admin@remix.run`
+   pw: `adminiscool`
