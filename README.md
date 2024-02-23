@@ -7,6 +7,9 @@ Before getting started, ensure that you have the following prerequisites:
 
 - Docker daemon is running on your machine.
 
+Please copy the `.env.example` file and rename it to `.env`. Then generate a MapLibre key and paste it in the variable.
+
+
 ## Installation and Setup
 1. Install all required packages using the following command:
    `npm install`
